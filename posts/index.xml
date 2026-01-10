@@ -6,8 +6,15 @@
     <description>Recent content in Posts on My New Hugo Site</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 29 Dec 2025 20:20:54 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 11 Jan 2026 02:58:33 +0800</lastBuildDate>
     <atom:link href="https://example.org/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>妇产科学</title>
+      <link>https://example.org/posts/third-post/</link>
+      <pubDate>Sun, 11 Jan 2026 02:58:33 +0800</pubDate>
+      <guid>https://example.org/posts/third-post/</guid>
+      <description>&lt;p&gt;第4周鳃弓出现&#xA;鳃沟的命运&#xA;第㇐对鳃沟发育为外耳道&#xA;第二至四对鳃沟&#xA;颈是由第2、3、4、6鳃弓与心上嵴（epicardialridge）发育而成。&#xA;人胚第5周时，第2鳃弓生长迅速，向尾侧覆盖在第3、4、6鳃弓的表面，直至与心上嵴融合，形成颈窦&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Second Post</title>
       <link>https://example.org/posts/second-post/</link>
