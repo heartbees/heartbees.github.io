@@ -1,4 +1,5 @@
 @echo off
+chcp 65001 > nul
 echo.
 echo ========================================
 echo Hugo 博客自动推送脚本（CMD 格式，双击运行）
@@ -8,13 +9,11 @@ echo.
 :: 第一步：切换到 main 分支（源码分支，确保有 Hugo 配置）
 echo 【1/6】正在切换到 main 分支...
 git checkout main
-if %errorlevel% equ 0 (
-    echo 已成功切换到 main 分支
-) else (
-    echo 提示：main 分支不存在，尝试拉取远程源码...
-    git fetch origin main
+if %errorlevel% neq 0 (
+    echo 提示：main 分支不存在，尝试创建并关联远程 main 分支...
     git checkout -b main origin/main
 )
+echo 已完成分支切换（若提示已在 main 分支，属正常现象）
 echo.
 
 :: 第二步：编译 Hugo 静态资源（生成 public 文件夹）
@@ -32,12 +31,11 @@ echo.
 :: 第三步：切换到 gh-pages 分支（部署分支）
 echo 【3/6】正在切换到 gh-pages 分支...
 git checkout gh-pages
-if %errorlevel% equ 0 (
-    echo 已成功切换到 gh-pages 分支
-) else (
+if %errorlevel% neq 0 (
     echo 提示：gh-pages 分支不存在，创建新分支...
     git checkout -b gh-pages
 )
+echo 已完成分支切换
 echo.
 
 :: 第四步：复制 public 内资源到 gh-pages 根目录（无嵌套，删除 public）

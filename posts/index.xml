@@ -1,33 +1,67 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Posts on My New Hugo Site</title>
-    <link>https://example.org/posts/</link>
-    <description>Recent content in Posts on My New Hugo Site</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
+    <title>Posts on 我的个人博客</title>
+    <link>https://heartbees.github.io/posts/</link>
+    <description>Recent content in Posts on 我的个人博客</description>
+    <image>
+      <title>我的个人博客</title>
+      <url>https://heartbees.github.io/images/cover.jpg</url>
+      <link>https://heartbees.github.io/images/cover.jpg</link>
+    </image>
+    <generator>Hugo -- 0.153.4</generator>
+    <language>zh-cn</language>
     <lastBuildDate>Sun, 11 Jan 2026 04:09:55 +0800</lastBuildDate>
-    <atom:link href="https://example.org/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://heartbees.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Test Color</title>
-      <link>https://example.org/posts/test-color/</link>
+      <title>four-post</title>
+      <link>https://heartbees.github.io/posts/four-post/</link>
       <pubDate>Sun, 11 Jan 2026 04:09:55 +0800</pubDate>
-      <guid>https://example.org/posts/test-color/</guid>
-      <description>&lt;p&gt;+++&#xA;date = &amp;lsquo;2026-01-11T00:00:00+08:00&amp;rsquo;&#xA;draft = false&#xA;title = &amp;lsquo;颜色测试文章&amp;rsquo;&#xA;+++&#xA;这是默认文字，&lt;!-- raw HTML omitted --&gt;这是红色文字&lt;!-- raw HTML omitted --&gt;，这是默认文字。&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;这是默认文字，&lt;!-- raw HTML omitted --&gt;这是蓝色文字&lt;!-- raw HTML omitted --&gt;，这是默认文字。&lt;/p&gt;</description>
+      <guid>https://heartbees.github.io/posts/four-post/</guid>
+      <description>&lt;p&gt;+++
+date = &amp;lsquo;2026-01-11T00:00:00+08:00&amp;rsquo;
+draft = false
+title = four-post
++++&lt;/p&gt;
+&lt;p&gt;新生儿期：出生后1一个月内
+儿童期：出生一个月到12周岁左右&lt;/p&gt;
+&lt;p&gt;月经周期：21-35天，平均28天。
+经量：一次月经总失血量，正常20-60ml，多于80ml，月经量过多
+始基卵泡：女性的基本生殖单位，卵细胞储存的唯一形式
+LH峰（黄体生成素）是即将排卵的可靠指标，排卵多在下次月经来潮前14日左右
+排卵后7-8天，黄体体积和功能达到高峰
+卵子未受精，黄体在排卵9-10天后退化&lt;/p&gt;</description>
     </item>
     <item>
-      <title>妇产科学</title>
-      <link>https://example.org/posts/third-post/</link>
+      <title>third-post</title>
+      <link>https://heartbees.github.io/posts/third-post/</link>
       <pubDate>Sun, 11 Jan 2026 02:58:33 +0800</pubDate>
-      <guid>https://example.org/posts/third-post/</guid>
-      <description>&lt;p&gt;第4周&lt;!-- raw HTML omitted --&gt;鳃弓&lt;!-- raw HTML omitted --&gt;出现&lt;/p&gt;&#xA;&lt;p&gt;鳃沟的命运&#xA;第㇐对鳃沟发育为&lt;!-- raw HTML omitted --&gt;外耳道&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;第二至四对鳃沟&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;p&gt;颈是由第2、3、4、6鳃弓与心上嵴（epicardialridge）发育而成。&#xA;人胚第5周时，第2鳃弓生长迅速，向尾侧覆盖在第3、4、6鳃弓的表面，直至与心上嵴融合，形成&lt;!-- raw HTML omitted --&gt;颈窦&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;p&gt;第3周，&lt;!-- raw HTML omitted --&gt;卵黄囊顶部内胚层&lt;!-- raw HTML omitted --&gt;被包卷入胚体内&lt;/p&gt;&#xA;&lt;p&gt;这是我的第三篇博客&lt;/p&gt;</description>
+      <guid>https://heartbees.github.io/posts/third-post/</guid>
+      <description>&lt;p&gt;第4周&lt;span class=&#34;text-red&#34;&gt;鳃弓&lt;/span&gt;出现&lt;/p&gt;
+&lt;p&gt;鳃沟的命运
+第㇐对鳃沟发育为&lt;span class=&#34;text-blue&#34;&gt;外耳道&lt;/span&gt;
+&lt;span class=&#34;text-green&#34;&gt;第二至四对鳃沟&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;颈是由第2、3、4、6鳃弓与心上嵴（epicardialridge）发育而成。
+人胚第5周时，第2鳃弓生长迅速，向尾侧覆盖在第3、4、6鳃弓的表面，直至与心上嵴融合，形成&lt;span class=&#34;text-deepred&#34;&gt;颈窦&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;第3周，&lt;span class=&#34;text-deepgreen&#34;&gt;卵黄囊顶部内胚层&lt;/span&gt;被包卷入胚体内&lt;/p&gt;
+&lt;p&gt;这是我的第三篇博客&lt;/p&gt;</description>
     </item>
     <item>
       <title>Second Post</title>
-      <link>https://example.org/posts/second-post/</link>
+      <link>https://heartbees.github.io/posts/second-post/</link>
       <pubDate>Mon, 29 Dec 2025 20:20:54 +0800</pubDate>
-      <guid>https://example.org/posts/second-post/</guid>
-      <description>&lt;p&gt;大家好这是我的第二篇文章&#xA;&lt;img src=&#34;https://example.org/images/IMG_20251130_134015.jpg&#34; alt=&#34;测试图片&#34;&gt;&lt;/p&gt;</description>
+      <guid>https://heartbees.github.io/posts/second-post/</guid>
+      <description>&lt;p&gt;大家好这是我的第二篇文章
+&lt;img alt=&#34;测试图片&#34; loading=&#34;lazy&#34; src=&#34;https://heartbees.github.io/images/IMG_20251130_134015.jpg&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Hello World</title>
+      <link>https://heartbees.github.io/posts/hello-world/</link>
+      <pubDate>Mon, 29 Dec 2025 19:11:00 +0800</pubDate>
+      <guid>https://heartbees.github.io/posts/hello-world/</guid>
+      <description>&lt;p&gt;终于敲下了 Hugo 博客的第一行文字！从搭建环境到生成第一篇文章，简单的操作却满是新鲜感。&lt;/p&gt;
+&lt;p&gt;静态博客的轻盈感太戳我了，不用复杂配置，专注写字就好。接下来想在这里分享编程小技巧、日常阅读的思考，哪怕只是碎碎念的生活记录，都是属于自己的小小天地。&lt;/p&gt;
+&lt;p&gt;愿每一次敲击键盘，都能留下有温度的痕迹。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
