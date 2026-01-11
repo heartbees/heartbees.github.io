@@ -1,0 +1,39 @@
+{{ define "main" }}
+<header class="home-info">
+  <!-- 封面图开关：仅当 ShowHomeCover 为 true 时显示图片 -->
+  {{ if .Site.Params.ShowHomeCover }}
+  <img 
+    src="/images/cover.jpg" 
+    alt="博客封面" 
+    style="
+      width: 100%; 
+      max-width: 500px; /* 适配PaperMod的适中宽度 */
+      height: auto; /* 保持宽高比，不拉伸变形 */
+      border-radius: 8px; /* 和主题卡片圆角一致 */
+      box-shadow: 0 2px 8px rgba(18, 164, 69, 0.1); /* 轻阴影，不突兀 */
+      margin: 0 auto 20px; /* 居中+和标题留间距 */
+      display: block;
+    "
+  >
+  {{ end }} <!-- 结束封面图条件判断 -->
+
+  <!-- 首页标题和描述 -->
+  <h1>{{ .Site.Params.homeInfoParams.Title | default .Site.Title }}</h1>
+  <p>{{ .Site.Params.homeInfoParams.Content | markdownify }}</p>
+</header>
+
+<!-- 最新文章列表（保留原有逻辑） -->
+{{ if .Site.Params.ShowRecentPosts }}
+<section class="recent-posts">
+  <h2 class="section-title">{{ T "recent_posts" }}</h2>
+  {{ range first .Site.Params.RecentPostsCount (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}
+  <article class="post-card">
+    <a href="{{ .RelPermalink }}">
+      <h3 class="post-title">{{ .Title }}</h3>
+      <div class="post-meta">{{ .Date.Format "2006-01-02" }}</div>
+    </a>
+  </article>
+  {{ end }}
+</section>
+{{ end }}
+{{ end }}

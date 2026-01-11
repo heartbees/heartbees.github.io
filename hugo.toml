@@ -1,0 +1,49 @@
+# 核心配置：简化 baseURL，避免路径异常
+baseURL = "https://heartbees.github.io/"
+languageCode = "zh-cn"
+title = "我的个人博客"
+theme = "PaperMod" # 确保 themes/ 下文件夹名是 PaperMod（大小写完全匹配）
+
+# 合并后的 params 配置（仅保留 1 个 [params] 节点，避免重复覆盖）
+[params]
+  author = "小香猪"
+  description = "这是本菜鸟的个人博客"
+  PaperModTheme = "light" # 强制浅色主题，视觉差异更明显（替代 auto）
+  ShowPostNavLinks = true
+  ShowArchiveButton = true
+  ShowRecentPosts = true # 首页显示最新文章卡片，告别纯文本
+  RecentPostsCount = 5   # 首页显示5篇文章
+  images = ["/images/cover.jpg"] # 首页封面图（需提前准备图片）
+  ShowHomeCover = true # 封面图开关：true=显示，false=隐藏（核心！）
+
+  # homeInfoParams 多行嵌套（TOML 规范写法）
+  [params.homeInfoParams]
+    Title = "我的个人博客"
+    Content = "分享学习笔记与生活感悟"
+    Image = "/images/cover.jpg" # 确保引号里的路径和图片访问地址完全一致
+
+# 菜单配置：对应 posts 文章目录
+[menu]
+  [[menu.main]]
+    identifier = "about"
+    name = "关于"
+    url = "/about/"
+    weight = 1
+
+  [[menu.main]]
+    identifier = "posts"
+    name = "博客"
+    url = "/posts/"
+    weight = 2
+
+# 文章链接格式
+[permalinks]
+  posts = "/posts/:title/"
+
+# 解决 Raw HTML 被省略的警告（让 <span> 标签生效）
+[markup.goldmark.renderer]
+  unsafe = true
+
+# 代码块高亮样式（和纯文本区别明显，层级正确：和 goldmark 同级）
+[markup.highlight]
+  style = "github" # 代码块用 GitHub 风格高亮
