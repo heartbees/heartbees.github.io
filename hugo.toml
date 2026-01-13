@@ -47,5 +47,3 @@ theme = "PaperMod" # 确保 themes/ 下文件夹名是 PaperMod（大小写完�
 # 代码块高亮样式（和纯文本区别明显，层级正确：和 goldmark 同级）
 [markup.highlight]
   style = "github" # 代码块用 GitHub 风格高亮
-  # 禁用子资源完整性（SRI）验证，解决哈希不匹配问题
-enableResourceIntegrity = false
