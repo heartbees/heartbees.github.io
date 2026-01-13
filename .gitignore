@@ -1,0 +1,4 @@
+# 忽略 CMD 推送脚本
+Hugo_Deploy.bat
+# 忽略 Hugo 编译目录
+public/
