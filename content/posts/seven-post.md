@@ -1,7 +1,7 @@
 ---
 ---
 title: "Hugo博客新手避坑指南：从搭建到部署全流程复盘"
-date: 2026-01-15 00:45:00
+date: 2026-01-15T00:31:00+08:00  # 发布时间（自动生成或手动修改）
 author: "小香猪"
 categories:
   - 技术分享
@@ -101,7 +101,7 @@ hugo
 rm -rf public/ resources/  # Windows PowerShell命令
 2. Markdown 实用语法（写文章更高效）
 图片插入：建议把图片放在content/posts/文章目录/images/下，路径写相对路径：![图片描述](images/xxx.jpg)；
-内部链接：链接到自己的其他文章，用 Hugo 内置短代码：{{< ref "posts/文章文件名" >}}（比如{{< ref "posts/first-post" >}}）；
+内部链接：链接到自己的其他文章，用 Hugo 内置短代码：[我的第三篇博客]({{< ref "posts/third-post" >}})；
 代码块：用三个反引号包裹，指定语言（如bash、markdown），Hugo 会自动高亮：
 bash
 运行
