@@ -1,0 +1,35 @@
+name: Hugo 远程自动部署
+
+on:
+  push:
+    branches:
+      - main  # 推送到 main 就自动部署
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: 拉取源码
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+          fetch-depth: 0
+
+      - name: 安装 Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.153.4'
+          extended: true
+
+      - name: 构建静态网站
+        run: hugo --gc --minify
+
+      - name: 部署到 gh-pages（远程服务器完成）
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          publish_branch: gh-pages
+          force_orphan: true  # 强制覆盖，永远不冲突
