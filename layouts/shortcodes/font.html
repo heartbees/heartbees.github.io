@@ -1,0 +1,4 @@
+<!-- layouts/shortcodes/font.html -->
+<span style="color: {{ .Get "color" }}; font-size: {{ .Get "size" }}; font-family: {{ .Get "family" | default "system-ui" }};">
+  {{ .Inner }}
+</span>
