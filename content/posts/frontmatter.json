@@ -49,5 +49,11 @@
   "frontMatter.git.enabled": true,
   "frontMatter.framework.id": "hugo",
   "frontMatter.content.publicFolder": "static",
-  "frontMatter.preview.host": "http://localhost:1313"
+  "frontMatter.preview.host": "http://localhost:1313",
+  "frontMatter.content.pageFolders": [
+    {
+      "title": "pics",
+      "path": "[[workspace]]"
+    }
+  ]
 }
