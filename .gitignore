@@ -1,4 +1,20 @@
-# 忽略 CMD 推送脚本
-Hugo_Deploy.bat
-# 忽略 Hugo 编译目录
+# Hugo 编译产物与缓存
 public/
+resources/_gen/
+.hugo_build.lock
+.hugo_build.min.html
+
+# FrontMatter 编辑器本地数据库/缓存（配置文件 frontmatter.json 建议跟踪，故不忽略）
+.frontmatter/
+**/.frontmatter/
+mediaDb.json
+pinnedItemsDb.json
+taxonomyDb.json
+
+# 系统垃圾文件
+.DS_Store
+Thumbs.db
+*.tmp
+
+# VSCode 本地配置（按需开启）
+# .vscode/
