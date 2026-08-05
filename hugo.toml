@@ -47,3 +47,10 @@ theme = "PaperMod" # 确保 themes/ 下文件夹名是 PaperMod（大小写完�
 # 代码块高亮样式（和纯文本区别明显，层级正确：和 goldmark 同级）
 [markup.highlight]
   style = "github" # 代码块用 GitHub 风格高亮
+
+  # ================= Waline 评论系统配置 =================
+[params.waline]
+  enable = true
+  serverURL = "https://jimlynn.vercel.app" # 你的 Vercel 部署地址
+  pageview = true # 开启文章阅读量统计
+  comment = true  # 开启文章评论数统计
