@@ -17,7 +17,15 @@ init({
 
     serverURL:"{{ .Site.Params.waline.serverURL }}",
 
-    pageview:true
+    pageview:true,
+
+    // 自动适配 PaperMod 暗色模式
+    dark:"html[data-theme='dark']",
+
+    // 自定义提示文字
+    locale:{
+        placeholder:"欢迎留言交流～"
+    }
 
 });
 
