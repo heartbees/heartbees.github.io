@@ -42,21 +42,55 @@
   </div>
   {{- end }}
 
-  <footer class="post-footer">
+ <footer class="post-footer">
+
     {{- $tags := .Language.Params.Taxonomies.tag | default "tags" }}
+
     <ul class="post-tags">
+
       {{- range ($.GetTerms $tags) }}
-      <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
+
+      <li>
+        <a href="{{ .Permalink }}">
+          {{ .LinkTitle }}
+        </a>
+      </li>
+
       {{- end }}
+
     </ul>
+
+
     {{- if (.Param "ShowPostNavLinks") }}
-    {{- partial "post_nav_links.html" . }}
+
+      {{- partial "post_nav_links.html" . }}
+
     {{- end }}
+
+
+
     {{- if (and site.Params.ShowShareButtons (ne .Params.disableShare true)) }}
-    {{- partial "share_icons.html" . -}}
+
+      {{- partial "share_icons.html" . -}}
+
     {{- end }}
-  </footer>
+
+
+</footer>
+
+
+
+<!-- Waline评论区 -->
 
 {{- if .Site.Params.comments }}
-  {{- partial "comments.html" . }}
-  {{- end }}
+
+    {{- partial "comments.html" . }}
+
+{{- end }}
+
+
+
+</article>
+
+
+{{- end }}{{/* end main */}}

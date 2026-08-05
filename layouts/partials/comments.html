@@ -2,22 +2,26 @@
 
 <div id="waline"></div>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@waline/client@v3/dist/waline.css">
+<link rel="stylesheet"
+href="https://unpkg.com/@waline/client@v3/dist/waline.css">
+
 
 <script type="module">
 
-import { init } from 'https://cdn.jsdelivr.net/npm/@waline/client@v3/dist/waline.mjs';
+import { init } from "https://unpkg.com/@waline/client@v3/dist/waline.js";
+
 
 init({
 
-    el: '#waline',
+    el:"#waline",
 
-    serverURL: '{{ .Site.Params.waline.serverURL }}',
+    serverURL:"{{ .Site.Params.waline.serverURL }}",
 
-    pageview: {{ .Site.Params.waline.pageview | default false }}
+    pageview:true
 
 });
 
 </script>
+
 
 {{- end -}}
