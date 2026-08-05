@@ -9,7 +9,6 @@ theme = "PaperMod" # 确保 themes/ 下文件夹名是 PaperMod（大小写完�
   author = "小香猪"
   description = "这是本菜鸟的个人博客"
   PaperModTheme = "light" # 强制浅色主题，视觉差异更明显（替代 auto）
-  comments = true
   ShowPostNavLinks = true
   ShowArchiveButton = true
   ShowRecentPosts = true # 首页显示最新文章卡片，告别纯文本

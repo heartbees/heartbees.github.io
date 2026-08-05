@@ -1,18 +1,23 @@
 {{- if .Site.Params.waline.enable -}}
+
 <div id="waline"></div>
 
-<!-- 引入 Waline CSS 样式表 -->
-<link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@waline/client@v3/dist/waline.css">
 
-<!-- 初始化 Waline -->
 <script type="module">
-  import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.mjs';
 
-  init({
+import { init } from 'https://cdn.jsdelivr.net/npm/@waline/client@v3/dist/waline.mjs';
+
+init({
+
     el: '#waline',
+
     serverURL: '{{ .Site.Params.waline.serverURL }}',
-    pageview: {{ .Site.Params.waline.pageview | default false }},
-    comment: {{ .Site.Params.waline.comment | default false }},
-  });
+
+    pageview: {{ .Site.Params.waline.pageview | default false }}
+
+});
+
 </script>
+
 {{- end -}}

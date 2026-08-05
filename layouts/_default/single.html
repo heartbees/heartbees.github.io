@@ -57,19 +57,6 @@
     {{- end }}
   </footer>
 
-  <!-- 自定义 Waline 评论区 -->
-  <div id="waline" style="margin-top: 2rem;"></div>
-  <link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css" />
-  <script type="module">
-    import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.mjs';
-
-    init({
-      el: '#waline',
-      serverURL: 'https://jimlynn.vercel.app',
-      pageview: true,
-      comment: true,
-    });
-  </script>
-</article>
-
-{{- end }}{{/* end main */}}
+{{- if .Site.Params.comments }}
+  {{- partial "comments.html" . }}
+  {{- end }}
