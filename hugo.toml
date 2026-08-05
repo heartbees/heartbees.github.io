@@ -9,12 +9,14 @@ theme = "PaperMod" # 确保 themes/ 下文件夹名是 PaperMod（大小写完�
   author = "小香猪"
   description = "这是本菜鸟的个人博客"
   PaperModTheme = "light" # 强制浅色主题，视觉差异更明显（替代 auto）
+  comments = true
   ShowPostNavLinks = true
   ShowArchiveButton = true
   ShowRecentPosts = true # 首页显示最新文章卡片，告别纯文本
   RecentPostsCount = 5   # 首页显示5篇文章
   images = ["/images/cover.jpg"] # 首页封面图（需提前准备图片）
   ShowHomeCover = true # 封面图开关：true=显示，false=隐藏（核心！）
+
 
   # homeInfoParams 多行嵌套（TOML 规范写法）
   [params.homeInfoParams]
