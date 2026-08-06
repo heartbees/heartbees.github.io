@@ -1,6 +1,6 @@
 ---
-title: Hugo 文章修改指南：VS Code 可视化操作，一键同步上线
-description: 教你用 VS Code 可视化修改已发布的 Hugo 文章，无需命令行，修改后一键同步到线上，新手也能秒会～
+title: Hugo文章修改：VS Code操作
+description: 用 VS Code 可视化修改已发布的 Hugo 文章，无需命令行，修改后一键同步到线上
 draft: false
 tags:
     - 文章修改
@@ -10,7 +10,6 @@ categories:
 keywords: []
 date: 2026-02-04T17:13:59.712Z
 ---
-下一步建议
 考虑安装辅助插件：
 **GitLens：** 代码行末显示最后修改信息，方便追踪历史
 **Markdown All in One：** 提供更强大的 Markdown 编辑支持

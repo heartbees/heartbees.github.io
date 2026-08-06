@@ -1,7 +1,7 @@
 ---
 title: "不用记命令！VS Code 可视化推送 Hugo 文章，一键触发远程部署"
 date: 2026-02-04T16:45:00+08:00  # 标准 ISO 8601 格式，北京时间，精准到分钟
-draft: false
+draft: true
 tags: ["Hugo", "VS Code", "GitHub Actions", "博客部署", "可视化操作"]
 categories: ["技术教程"]
 description: "告别繁琐命令行！教你用 VS Code 图形化界面完成 Hugo 文章推送，自动触发远程部署，新手也能秒上手～"

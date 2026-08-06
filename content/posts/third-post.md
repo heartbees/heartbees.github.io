@@ -1,7 +1,7 @@
 +++
 date = '2026-01-11T02:58:33+08:00'
 draft = false
-title = 'third-post'
+title = '妇产科小笔记'
 +++
 第4周<span class="text-red">鳃弓</span>出现
 
@@ -13,5 +13,3 @@ title = 'third-post'
 人胚第5周时，第2鳃弓生长迅速，向尾侧覆盖在第3、4、6鳃弓的表面，直至与心上嵴融合，形成<span class="text-deepred">颈窦</span>
 
 第3周，<span class="text-deepgreen">卵黄囊顶部内胚层</span>被包卷入胚体内
-
-这是我的第三篇博客
