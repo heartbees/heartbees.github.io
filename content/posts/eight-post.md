@@ -2,7 +2,7 @@
 title: "Hugo改用远程部署"
 date: 2026-02-05T10:00:00+08:00
 draft: false
-tags: ["Hugo", "博客部署", "GitHub Actions"]
+tags: ["GitHub Actions"]
 categories: ["技术教程"]
 ---
 
