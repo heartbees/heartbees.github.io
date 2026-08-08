@@ -1,0 +1,555 @@
+/* =========================
+   Hero整体
+========================= */
+
+.hero{
+
+    position:relative;
+
+    text-align:center;
+
+    padding:80px 20px 160px;
+
+    overflow:hidden;
+
+    z-index:1;
+
+}
+
+
+
+/* =========================
+   Hero背景虚化
+========================= */
+
+.hero-bg{
+
+    position:absolute;
+
+    top:-150px;
+
+    left:0;
+
+    right:0;
+
+    height:900px;
+
+
+    background-image:url('/images/hero.jpg');
+
+    background-size:cover;
+
+    background-position:center;
+
+
+    filter:blur(70px);
+
+    opacity:.22;
+
+
+    transform:scale(1.3);
+
+
+    z-index:0;
+
+    pointer-events:none;
+
+
+    animation:bgFloat 12s ease-in-out infinite;
+
+}
+
+
+
+/* 背景漂浮 */
+
+@keyframes bgFloat{
+
+
+    0%{
+
+        transform:
+        scale(1.3)
+        translate(0,0);
+
+    }
+
+
+    50%{
+
+        transform:
+        scale(1.35)
+        translate(20px,-15px);
+
+    }
+
+
+    100%{
+
+        transform:
+        scale(1.3)
+        translate(0,0);
+
+    }
+
+
+}
+
+
+
+/* =========================
+   头像
+========================= */
+
+
+.avatar{
+
+
+    width:120px;
+
+    height:120px;
+
+
+    object-fit:cover;
+
+
+    border-radius:50%;
+
+
+    display:block;
+
+
+    margin:0 auto 30px;
+
+
+    box-shadow:
+
+    0 10px 30px rgba(0,0,0,.2);
+
+
+}
+
+
+
+/* =========================
+   Hero主图
+========================= */
+
+
+.hero-img{
+
+
+    width:400px;
+
+    height:400px;
+
+
+    object-fit:cover;
+
+
+    border-radius:28px;
+
+
+    display:block;
+
+    margin:0 auto;
+
+
+    box-shadow:
+
+    0 25px 70px rgba(0,0,0,.25);
+
+
+    transition:.5s;
+
+
+    animation:
+
+    float 5s ease-in-out infinite;
+
+
+}
+
+
+
+/* 图片漂浮 */
+
+
+@keyframes float{
+
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+
+    50%{
+
+        transform:translateY(-12px);
+
+    }
+
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+
+}
+
+
+
+/* 图片hover */
+
+
+.hero-img:hover{
+
+
+    transform:
+
+    scale(1.05)
+    translateY(-15px);
+
+
+    box-shadow:
+
+    0 35px 90px rgba(0,0,0,.35);
+
+
+}
+
+
+
+/* =========================
+   标题
+========================= */
+
+
+.hero h1{
+
+
+    font-size:52px;
+
+
+    margin-top:45px;
+
+
+}
+
+
+
+/* 描述 */
+
+
+.hero p{
+
+
+    font-size:20px;
+
+
+    color:#666;
+
+
+}
+
+
+
+/* =========================
+   开始阅读按钮
+========================= */
+
+
+.hero-btn{
+
+
+    display:inline-block;
+
+
+    margin-top:30px;
+
+
+    padding:14px 38px;
+
+
+    border-radius:50px;
+
+
+    background:
+
+    linear-gradient(
+    135deg,
+    #222,
+    #555
+    );
+
+
+    color:white;
+
+
+    font-size:16px;
+
+
+    text-decoration:none;
+
+
+    box-shadow:
+
+    0 10px 25px rgba(0,0,0,.25);
+
+
+    transition:.35s;
+
+
+    position:relative;
+
+
+    overflow:hidden;
+
+
+}
+
+
+
+/* 按钮hover */
+
+
+.hero-btn:hover{
+
+
+    transform:
+
+    translateY(-5px)
+    scale(1.05);
+
+
+    box-shadow:
+
+    0 20px 40px rgba(0,0,0,.35);
+
+
+}
+
+
+
+/* 点击 */
+
+
+.hero-btn:active{
+
+
+    transform:scale(.95);
+
+
+}
+
+
+
+/* 光扫效果 */
+
+
+.hero-btn::before{
+
+
+    content:"";
+
+
+    position:absolute;
+
+
+    top:0;
+
+
+    left:-100%;
+
+
+    width:60%;
+
+
+    height:100%;
+
+
+
+    background:
+
+    linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,.5),
+    transparent
+    );
+
+
+    transition:.6s;
+
+
+}
+
+
+
+.hero-btn:hover::before{
+
+
+    left:120%;
+
+
+}
+
+
+
+
+
+/* =========================
+   最新文章区域
+========================= */
+
+
+.posts{
+
+
+    margin-top:-30px;
+
+
+    position:relative;
+
+
+    z-index:10;
+
+
+}
+
+
+
+
+
+.post-grid{
+
+
+    display:grid;
+
+
+    grid-template-columns:
+
+    repeat(auto-fit,minmax(260px,1fr));
+
+
+    gap:25px;
+
+
+}
+
+
+
+
+
+/* =========================
+   文章卡片
+========================= */
+
+
+.post-card{
+
+
+    text-decoration:none;
+
+
+    color:inherit;
+
+
+}
+
+
+
+
+
+.card{
+
+
+    padding:25px;
+
+
+    border-radius:22px;
+
+
+    background:var(--entry);
+
+
+    height:100%;
+
+
+    transition:.35s;
+
+
+    box-shadow:
+
+    0 8px 25px rgba(0,0,0,.06);
+
+
+}
+
+
+
+
+
+.card:hover{
+
+
+    transform:
+
+    translateY(-10px)
+    scale(1.02);
+
+
+    box-shadow:
+
+    0 25px 50px rgba(0,0,0,.15);
+
+
+}
+
+
+
+/* =========================
+   手机适配
+========================= */
+
+
+@media(max-width:768px){
+
+
+    .hero-img{
+
+
+        width:280px;
+
+        height:280px;
+
+
+    }
+
+
+
+    .hero h1{
+
+
+        font-size:36px;
+
+
+    }
+
+
+
+    .hero p{
+
+
+        font-size:16px;
+
+
+    }
+
+
+
+}

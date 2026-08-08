@@ -1,95 +1,119 @@
-# 核心配置
 baseURL = "https://heartbees.github.io/"
 languageCode = "zh-cn"
-title = "我的个人博客"
+hasCJKLanguage = true
+title = "Jimlynn"
 theme = "PaperMod"
 
 
-# ================= 网站参数 =================
 [params]
 
-  author = "小香猪"
-  description = "这是本菜鸟的个人博客"
+author = "小香猪"
 
-  # PaperMod主题
-  PaperModTheme = "light"
-
-  # 开启评论功能（重要）
-  comments = true
-
-  # 文章导航
-  ShowPostNavLinks = true
-
-  # 显示归档按钮
-  ShowArchiveButton = true
-
-  # 首页文章
-  ShowRecentPosts = true
-  RecentPostsCount = 5
-
-  # 首页图片
-  images = ["/images/cover.jpg"]
-  ShowHomeCover = true
+description = "记录AI探索、技术学习与生活感悟"
 
 
-  # ================= 首页信息 =================
-  [params.homeInfoParams]
-
-    Title = "我的个人博客"
-    Content = "分享学习笔记与生活感悟"
-    Image = "/images/cover.jpg"
+defaultTheme = "auto"
 
 
+# 评论
+comments = true
 
-# ================= 菜单 =================
+
+# 文章功能
+
+ShowPostNavLinks = true
+
+ShowArchiveButton = true
+
+ShowReadingTime = true
+
+ShowWordCount = true
+
+ShowBreadCrumbs = true
+
+ShowPostSummary = true
+
+
+# 首页封面
+
+images = ["/images/cover.jpg"]
+
+ShowHomeCover = true
+
+
+
+# 首页介绍
+
+Title = "Jimlynn的数字花园"
+
+Content = """
+记录AI探索、技术折腾与生活碎片。
+
+在这里分享我的学习过程、工具体验和个人思考。
+"""
+
+
+# 菜单
 
 [menu]
 
-  [[menu.main]]
+[[menu.main]]
 
-    identifier = "about"
-    name = "关于"
-    url = "/about/"
-    weight = 1
+identifier="about"
 
+name="关于"
 
-  [[menu.main]]
+url="/about/"
 
-    identifier = "posts"
-    name = "博客"
-    url = "/posts/"
-    weight = 2
+weight=1
 
 
+[[menu.main]]
 
-# ================= 文章链接 =================
+identifier="posts"
+
+name="博客"
+
+url="/posts/"
+
+weight=2
+
+
+
+# URL
 
 [permalinks]
 
-  posts = "/posts/:title/"
+posts="/posts/:title/"
 
 
-
-# ================= Markdown =================
+# markdown
 
 [markup.goldmark.renderer]
 
-  unsafe = true
-
+unsafe=true
 
 
 [markup.highlight]
 
-  style = "github"
+style="github"
 
 
 
-# ================= Waline =================
+# 搜索
+
+[outputs]
+
+home=["HTML","RSS","JSON"]
+
+
+
+# Waline
 
 [params.waline]
 
-  enable = true
+enable=true
 
-  serverURL = "https://jimlynn.vercel.app"
+serverURL="https://jimlynn.vercel.app"
 
-  pageview = true
+pageview=true
