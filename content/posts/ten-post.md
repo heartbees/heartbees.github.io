@@ -1,9 +1,8 @@
 ---
-title: Hugo文章修改：VS Code操作
+title: Hugo文章修改
 description: 用 VS Code 可视化修改已发布的 Hugo 文章，无需命令行，修改后一键同步到线上
 draft: false
 tags:
-    - 文章修改
     - 博客维护
 categories:
     - 技术教程

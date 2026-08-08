@@ -1,9 +1,11 @@
 ---
-title: "Hugo改用远程部署"
+title: Hugo改用远程部署
 date: 2026-02-05T10:00:00+08:00
 draft: false
-tags: ["GitHub Actions"]
-categories: ["技术教程"]
+tags:
+    - 博客维护
+categories:
+    - 技术教程
 ---
 
 之前用Hugo搭建博客，一直依赖本地bat脚本手动部署，不仅容易出现乱码、推送卡住、gh-pages分支冲突等问题，每次更新文章都要折腾一堆命令，特别麻烦。
