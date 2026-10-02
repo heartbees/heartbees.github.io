@@ -1,9 +1,14 @@
 baseURL = "https://heartbees.github.io/"
-languageCode = "zh-cn"
-hasCJKLanguage = true
 title = "Jimlynn"
 theme = "PaperMod"
 
+# 语言
+languageCode = "zh-cn"
+defaultContentLanguage = "zh-cn"
+hasCJKLanguage = true
+
+# 生成 robots.txt（利于 SEO）
+enableRobotsTXT = true
 
 [params]
 
@@ -11,16 +16,12 @@ author = "小香猪"
 
 description = "记录AI探索、技术学习与生活感悟"
 
-
 defaultTheme = "auto"
-
 
 # 评论
 comments = true
 
-
 # 文章功能
-
 ShowPostNavLinks = true
 
 ShowArchiveButton = true
@@ -31,89 +32,56 @@ ShowWordCount = true
 
 ShowBreadCrumbs = true
 
-ShowPostSummary = true
-
-
-# 首页封面
-
+# 默认分享/OG 封面图
 images = ["/images/cover.jpg"]
 
-ShowHomeCover = true
-
-
-
-# 首页介绍
-
-Title = "Jimlynn的数字花园"
-
-Content = """
-记录AI探索、技术折腾与生活碎片。
-
-在这里分享我的学习过程、工具体验和个人思考。
-"""
-
-
 # 菜单
-
 [menu]
 
 [[menu.main]]
 
-identifier="about"
+identifier = "about"
 
-name="关于"
+name = "关于"
 
-url="/about/"
+url = "/about/"
 
-weight=1
-
+weight = 1
 
 [[menu.main]]
 
-identifier="posts"
+identifier = "posts"
 
-name="博客"
+name = "博客"
 
-url="/posts/"
+url = "/posts/"
 
-weight=2
-
-
+weight = 2
 
 # URL
-
 [permalinks]
 
-posts="/posts/:title/"
-
+posts = "/posts/:title/"
 
 # markdown
-
 [markup.goldmark.renderer]
 
-unsafe=true
-
+unsafe = true
 
 [markup.highlight]
 
-style="github"
+style = "github"
 
-
-
-# 搜索
-
+# 搜索（生成 index.json 供 PaperMod 搜索）
 [outputs]
 
-home=["HTML","RSS","JSON"]
+home = ["HTML", "RSS", "JSON"]
 
-
-
-# Waline
-
+# Waline 评论
 [params.waline]
 
-enable=true
+enable = true
 
-serverURL="https://jimlynn.vercel.app"
+serverURL = "https://jimlynn.vercel.app"
 
-pageview=true
+pageview = true
