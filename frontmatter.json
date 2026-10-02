@@ -50,9 +50,5 @@
   "frontMatter.content.publicFolder": "static",
   "frontMatter.preview.host": "http://localhost:1313",
   "frontMatter.git.enabled": true,
-  "frontMatter.content.pageFolders": [
-    {
-      "path": "[[workspace]]/content/posts"
-    }
-  ]
+  "frontMatter.content.pageFolders": []
 }

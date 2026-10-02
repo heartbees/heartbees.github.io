@@ -21,4 +21,5 @@ taxonomyDb.json
 .claude/
 .DS_Store
 Thumbs.db
-*.tm
+*.tmp
+*.~tmp
