@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>岁时 SeasonAtlas · 跟着季节，发现世界祭典与自然奇景</title>
+<meta name="description" content="岁时 SeasonAtlas：按季节/月份探索世界祭典、自然奇景与一生一次的天象。每个目的地标注日期状态（官方已公布/推估/历年规律）、官方出处与月度气候，可收藏、导出日历、预订住宿与门票。" />
+<meta name="keywords" content="世界祭典,自然奇景,节庆旅行,最佳旅行月份,樱花前线,极光,动物大迁徙,日全食" />
+<meta name="theme-color" content="#0a0e13" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%230a0e13'/%3E%3Ccircle cx='32' cy='32' r='21' fill='none' stroke='%23e9bd7f' stroke-width='6'/%3E%3C/svg%3E" />
+<link rel="canonical" href="https://heartbees.github.io/seasons-atlas/" />
+<link rel="alternate" hreflang="zh-CN" href="https://heartbees.github.io/seasons-atlas/" />
+<link rel="alternate" hreflang="x-default" href="https://heartbees.github.io/seasons-atlas/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="岁时 SeasonAtlas" />
+<meta property="og:title" content="岁时 SeasonAtlas · 跟着季节，发现世界祭典与自然奇景" />
+<meta property="og:description" content="按季节/月份探索世界祭典与自然奇景，日期可核对、可收藏、可导出日历、可直接预订。" />
+<meta property="og:image" content="https://heartbees.github.io/seasons-atlas/%E9%A2%84%E8%A7%88-%E9%A6%96%E9%A1%B5-%E6%B7%B1%E8%89%B2.png" />
+<meta property="og:url" content="https://heartbees.github.io/seasons-atlas/" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="岁时 SeasonAtlas · 世界岁时地图" />
+<meta name="twitter:description" content="按季节探索世界祭典与自然奇景。" />
+<meta name="twitter:image" content="https://heartbees.github.io/seasons-atlas/%E9%A2%84%E8%A7%88-%E9%A6%96%E9%A1%B5-%E6%B7%B1%E8%89%B2.png" />
+<style>
+  :root{
+    --bg:#0a0e13; --bg-2:#0d131b; --panel:#111a24; --panel-2:#0f1620;
+    --line:rgba(255,255,255,.08); --line-soft:rgba(255,255,255,.05);
+    --text:#e9eef3; --muted:#8ea3b4; --muted-2:#6b7f90;
+    --gold:#e9bd7f; --gold-2:#f3d3a0; --teal:#5fd3c4;
+    --fest:#ff8f6b; --nature:#7ad3a0; --phenom:#8fb8ff;
+    --radius:16px;
+    --serif:"Songti SC","Noto Serif SC","Source Han Serif SC","Source Han Serif","Georgia","Times New Roman",serif;
+    --sans:system-ui,-apple-system,"PingFang SC","Microsoft YaHei","Segoe UI",Roboto,sans-serif;
+    --header-bg:linear-gradient(180deg,rgba(10,14,19,.92),rgba(10,14,19,.68));
+    --body-bg:radial-gradient(1200px 700px at 80% -10%, rgba(95,211,196,.10), transparent 60%),radial-gradient(900px 600px at 10% 0%, rgba(233,189,127,.08), transparent 55%),#0a0e13;
+  }
+  body.light{
+    --bg:#f5f2ec; --bg-2:#efeae1; --panel:#ffffff; --panel-2:#faf7f1;
+    --line:rgba(24,36,48,.12); --line-soft:rgba(24,36,48,.07);
+    --text:#1b2530; --muted:#5d6d7a; --muted-2:#8a97a2;
+    --gold:#b07c2a; --gold-2:#95651d; --teal:#0f8f82;
+    --fest:#d9622f; --nature:#2f9e63; --phenom:#3a72d8;
+    --header-bg:linear-gradient(180deg,rgba(245,242,236,.94),rgba(245,242,236,.72));
+    --body-bg:radial-gradient(1200px 700px at 80% -10%, rgba(15,143,130,.08), transparent 60%),radial-gradient(900px 600px at 10% 0%, rgba(176,124,42,.07), transparent 55%),#f5f2ec;
+    color:#1b2530;
+  }
+  *{box-sizing:border-box;}
+  html.no-anim *{transition:none !important;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--body-bg);color:var(--text);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;transition:background .3s,color .3s;}
+  a{color:inherit;text-decoration:none;}
+  ::selection{background:rgba(233,189,127,.3);}
+  .wrap{max-width:1220px;margin:0 auto;padding:0 24px;}
+  .eyebrow{font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:600;}
+
+  header.site{position:sticky;top:0;z-index:40;backdrop-filter:blur(14px);background:var(--header-bg);border-bottom:1px solid var(--line-soft);}
+  .nav{display:flex;align-items:center;gap:20px;height:66px;}
+  .brand{display:flex;align-items:center;gap:11px;font-weight:700;letter-spacing:.02em;}
+  .brand .mark{width:34px;height:34px;border-radius:50%;position:relative;flex:0 0 auto;background:conic-gradient(from 210deg,var(--gold),var(--teal),var(--gold));box-shadow:0 0 22px rgba(233,189,127,.35),inset 0 0 8px rgba(0,0,0,.6);}
+  body.light .brand .mark{box-shadow:0 0 16px rgba(176,124,42,.3),inset 0 0 8px rgba(0,0,0,.25);}
+  .brand .mark::after{content:"";position:absolute;inset:6px;border-radius:50%;background:var(--bg);}
+  .brand b{font-size:17px;}
+  .brand small{display:block;font-size:10px;letter-spacing:.32em;color:var(--muted-2);font-weight:600;margin-top:-2px;}
+  nav.links{display:flex;gap:16px;margin-left:auto;align-items:center;}
+  nav.links a, nav.links button{font-size:14px;color:var(--muted);transition:color .2s;background:none;border:none;font-family:inherit;cursor:pointer;padding:0;}
+  nav.links a:hover, nav.links button:hover{color:var(--text);}
+  .theme-btn{width:36px;height:36px;border-radius:10px;border:1px solid var(--line);background:rgba(127,127,127,.06);display:grid;place-items:center;font-size:16px;color:var(--muted);}
+  .theme-btn:hover{color:var(--text);border-color:rgba(233,189,127,.5);}
+  .demo-tag{font-size:11px;color:var(--gold);border:1px solid rgba(176,124,42,.4);padding:4px 9px;border-radius:999px;white-space:nowrap;}
+
+  .hero{padding:60px 0 24px;position:relative;}
+  .hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(34px,6vw,62px);line-height:1.12;margin:16px 0 0;letter-spacing:.01em;}
+  .hero h1 .grad{background:linear-gradient(100deg,var(--gold-2),var(--gold) 45%,var(--teal));-webkit-background-clip:text;background-clip:text;color:transparent;font-style:italic;}
+  .hero p.lead{max-width:660px;color:var(--muted);font-size:17px;margin:20px 0 0;}
+  .hero .now{margin-top:22px;display:inline-flex;align-items:center;gap:9px;font-size:13.5px;color:var(--muted);background:rgba(127,127,127,.05);border:1px solid var(--line);padding:9px 15px;border-radius:999px;}
+  .hero .now b{color:var(--gold-2);font-weight:600;}
+  .hero .now .pulse{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 0 rgba(95,211,196,.7);animation:pulse 2.4s infinite;}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(95,211,196,.55)}70%{box-shadow:0 0 0 9px rgba(95,211,196,0)}100%{box-shadow:0 0 0 0 rgba(95,211,196,0)}}
+
+  .monthbar{margin-top:32px;background:linear-gradient(180deg,var(--panel),var(--panel-2));border:1px solid var(--line);border-radius:20px;padding:16px 16px 12px;box-shadow:0 24px 60px -34px rgba(0,0,0,.6);}
+  .monthbar .top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px;padding:0 4px;}
+  .monthbar .top .lab{font-size:13px;color:var(--muted);}
+  .monthbar .top .lab b{color:var(--text);}
+  .months{display:grid;grid-template-columns:repeat(13,1fr);gap:6px;}
+  .mbtn{appearance:none;border:1px solid transparent;background:rgba(127,127,127,.06);color:var(--muted);border-radius:11px;padding:9px 0;cursor:pointer;font-family:inherit;display:flex;flex-direction:column;align-items:center;gap:3px;transition:.18s;position:relative;}
+  .mbtn span.n{font-size:13.5px;font-weight:600;color:var(--text);}
+  .mbtn span.s{font-size:9.5px;letter-spacing:.04em;color:var(--muted-2);}
+  .mbtn:hover{background:rgba(127,127,127,.12);}
+  .mbtn.all{background:rgba(233,189,127,.10);border-color:rgba(176,124,42,.3);}
+  .mbtn.all span.n{color:var(--gold-2);}
+  .mbtn.active{background:linear-gradient(180deg,var(--gold-2),var(--gold));border-color:var(--gold);box-shadow:0 8px 20px -8px rgba(176,124,42,.6);}
+  .mbtn.active span.n,.mbtn.active span.s{color:#1a1207;}
+  .mbtn.now::after{content:"";position:absolute;top:6px;right:7px;width:5px;height:5px;border-radius:50%;background:var(--teal);}
+
+  .explorer{padding:40px 0 10px;}
+  .explorer .head{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;flex-wrap:wrap;margin-bottom:18px;}
+  .explorer h2{font-family:var(--serif);font-size:clamp(24px,3.4vw,34px);margin:6px 0 0;font-weight:600;}
+  .explorer .head p{margin:8px 0 0;color:var(--muted);font-size:14px;max-width:560px;}
+  .controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:flex-end;}
+  .control-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;width:100%;justify-content:flex-end;}
+  .search{position:relative;}
+  .search input{width:250px;background:var(--panel);border:1px solid var(--line);color:var(--text);border-radius:11px;padding:10px 14px 10px 36px;font-size:14px;font-family:inherit;outline:none;transition:.2s;}
+  .search input:focus{border-color:rgba(233,189,127,.6);box-shadow:0 0 0 3px rgba(233,189,127,.15);}
+  .search svg{position:absolute;left:11px;top:50%;transform:translateY(-50%);opacity:.5;}
+  .chip{appearance:none;cursor:pointer;font-family:inherit;font-size:13px;color:var(--muted);background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:8px 14px;transition:.18s;display:inline-flex;align-items:center;gap:7px;}
+  .chip:hover{color:var(--text);border-color:rgba(127,127,127,.3);}
+  .chip .dot{width:8px;height:8px;border-radius:50%;background:currentColor;opacity:.85;}
+  .chip.active{background:rgba(127,127,127,.14);color:var(--text);border-color:rgba(233,189,127,.55);}
+  .chip.mini{font-size:12px;padding:6px 11px;}
+
+  .stage{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,1fr);gap:26px;align-items:start;}
+  .globe-card{position:relative;background:radial-gradient(120% 120% at 30% 10%,rgba(95,211,196,.06),transparent 50%),var(--panel-2);border:1px solid var(--line);border-radius:22px;padding:14px;overflow:hidden;box-shadow:0 30px 80px -40px rgba(0,0,0,.6),inset 0 0 40px rgba(0,0,0,.25);}
+  .globe-holder{position:relative;display:flex;justify-content:center;}
+  #globe{display:block;touch-action:none;cursor:grab;}
+  #globe:active{cursor:grabbing;}
+  .globe-hint{position:absolute;left:14px;bottom:12px;font-size:11.5px;color:var(--muted-2);}
+  .globe-legend{position:absolute;right:14px;bottom:12px;display:flex;gap:12px;font-size:11.5px;flex-wrap:wrap;justify-content:flex-end;}
+  .globe-legend i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;vertical-align:middle;}
+  .globe-caption{padding:6px 8px 2px;font-size:12.5px;color:var(--muted-2);text-align:center;min-height:20px;}
+
+  .results{display:flex;flex-direction:column;gap:11px;max-height:660px;overflow:auto;padding-right:4px;}
+  .results::-webkit-scrollbar{width:8px;}
+  .results::-webkit-scrollbar-thumb{background:rgba(127,127,127,.25);border-radius:8px;}
+  .count{font-size:12.5px;color:var(--muted-2);margin-bottom:2px;}
+  .results > *{flex:0 0 auto;}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:0;cursor:pointer;transition:.2s;position:relative;overflow:hidden;flex:0 0 auto;}
+  .cover{position:relative;height:132px;background:linear-gradient(135deg,var(--c1),var(--c2));overflow:hidden;}
+  .cover .cglow{position:absolute;width:240px;height:240px;border-radius:50%;right:-60px;top:-95px;background:radial-gradient(circle,rgba(255,255,255,.55),transparent 62%);}
+  .cover::after{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(115deg,rgba(255,255,255,.07) 0 2px,transparent 2px 11px);opacity:.7;pointer-events:none;}
+  .cover .cemoji{position:absolute;right:14px;bottom:2px;font-size:60px;line-height:1;filter:drop-shadow(0 8px 14px rgba(0,0,0,.35));}
+  .cover .cbadge{position:absolute;left:12px;top:11px;font-size:11px;color:#fff;background:rgba(0,0,0,.26);border:1px solid rgba(255,255,255,.4);padding:2px 9px;border-radius:999px;}
+  .cover .ccredit{position:absolute;left:10px;bottom:8px;font-size:10.5px;color:#fff;background:rgba(0,0,0,.34);padding:2px 8px;border-radius:6px;text-decoration:none;max-width:74%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .cover.mhero .ccredit{font-size:12px;bottom:12px;left:16px;}
+  .cover.mhero{height:158px;}
+  .cover.mhero .cemoji{font-size:92px;right:22px;bottom:6px;}
+  .cover.mhero .cbadge{font-size:12px;top:14px;left:16px;}
+  .card-body{padding:12px 15px 13px;}
+  .card:hover{transform:translateY(-2px);border-color:rgba(127,127,127,.28);background:var(--panel-2);box-shadow:0 18px 34px -22px rgba(0,0,0,.5);}
+  .card .name{font-size:16.5px;font-weight:600;font-family:var(--serif);}
+  .card .en{font-size:11px;color:var(--muted-2);letter-spacing:.02em;margin-top:1px;}
+  .card .meta{display:flex;gap:10px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:8px;align-items:center;}
+  .card .meta b{color:var(--text);font-weight:500;}
+  .card .sum{font-size:12.8px;color:var(--muted);margin-top:8px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+  .heat{display:grid;grid-template-columns:repeat(12,1fr);gap:3px;margin-top:9px;}
+  .heat b{height:7px;border-radius:2px;display:block;opacity:.95;}
+  .heat b.peak{outline:1px solid rgba(233,189,127,.85);outline-offset:1px;}
+  .heat b.cur{box-shadow:0 0 0 2px var(--teal);}
+  .tag{font-size:11px;padding:2px 9px;border-radius:999px;border:1px solid currentColor;line-height:1.5;white-space:nowrap;}
+  .tag.t-fest{color:var(--fest);} .tag.t-nature{color:var(--nature);} .tag.t-phenom{color:var(--phenom);}
+  .tag.st{font-size:10.5px;padding:1px 8px;border-radius:6px;border:none;}
+  .st-confirmed{color:#5fbf86 !important;background:rgba(47,158,99,.14);}
+  .st-estimate{color:#c9922e !important;background:rgba(201,146,46,.16);}
+  .st-pattern{color:#5786dc !important;background:rgba(58,114,216,.14);}
+  .empty{color:var(--muted);font-size:14px;padding:30px 10px;text-align:center;border:1px dashed var(--line);border-radius:14px;}
+
+  .why{padding:60px 0 30px;border-top:1px solid var(--line-soft);margin-top:30px;}
+  .why h2{font-family:var(--serif);font-size:clamp(24px,3.4vw,34px);font-weight:600;margin:6px 0 26px;}
+  .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+  .why-card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px;}
+  .why-card .ic{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;background:rgba(233,189,127,.14);color:var(--gold-2);margin-bottom:12px;}
+  .why-card h3{margin:0 0 6px;font-size:15.5px;}
+  .why-card p{margin:0;font-size:13px;color:var(--muted);line-height:1.65;}
+
+  footer.site{border-top:1px solid var(--line-soft);margin-top:26px;padding:34px 0 46px;color:var(--muted-2);font-size:12.5px;}
+  footer .fr{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:flex-start;}
+  footer .fbrand{font-family:var(--serif);font-size:16px;color:var(--text);}
+  footer p{max-width:600px;margin:8px 0 0;line-height:1.7;}
+  footer .links a{margin-left:16px;color:var(--muted);}
+  footer .links a:hover{color:var(--gold-2);}
+
+  .overlay{position:fixed;inset:0;z-index:9000;background:rgba(4,7,10,.7);backdrop-filter:blur(6px);display:none;align-items:flex-start;justify-content:center;padding:32px 18px;overflow:auto;}
+  body.light .overlay{background:rgba(40,50,60,.4);}
+  .overlay.open{display:flex;animation:fade .25s ease;}
+  @keyframes fade{from{opacity:0}to{opacity:1}}
+  .modal{width:min(780px,100%);background:linear-gradient(180deg,var(--panel),var(--bg-2));border:1px solid var(--line);border-radius:22px;padding:0;overflow:hidden;box-shadow:0 50px 120px -30px #000;animation:pop .3s ease;}
+  @keyframes pop{from{opacity:0;transform:translateY(16px) scale(.98)}to{opacity:1;transform:none}}
+  .modal .mhead{padding:26px 28px 20px;position:relative;border-bottom:1px solid var(--line-soft);background:radial-gradient(120% 160% at 100% 0,rgba(95,211,196,.10),transparent 55%);}
+  .modal .mclose{position:absolute;top:16px;right:16px;width:34px;height:34px;border-radius:9px;border:1px solid var(--line);background:rgba(127,127,127,.08);color:var(--muted);cursor:pointer;font-size:17px;line-height:1;display:grid;place-items:center;transition:.2s;}
+  .modal .mclose:hover{color:var(--text);background:rgba(127,127,127,.18);}
+  .modal .mtags{display:flex;gap:9px;align-items:center;margin-bottom:10px;flex-wrap:wrap;}
+  .modal h2{font-family:var(--serif);font-size:30px;margin:0 0 4px;font-weight:600;}
+  .modal .men{color:var(--muted-2);font-size:13px;}
+  .modal .mbody{padding:22px 28px 28px;}
+  .datebox{display:grid;grid-template-columns:1.7fr 1fr;background:rgba(127,127,127,.05);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-bottom:18px;}
+  .datebox .col{padding:14px 16px;}
+  .datebox .col + .col{border-left:1px solid var(--line);}
+  .datebox .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted-2);margin-bottom:5px;}
+  .datebox .v{font-size:15px;font-weight:600;}
+  .datebox .vsub{font-size:12px;color:var(--muted);margin-top:4px;}
+  .datebox a{color:var(--teal);font-size:12px;}
+  .modal h4{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin:22px 0 10px;}
+  .modal p.par{color:var(--text);opacity:.92;font-size:14.5px;margin:0;}
+  .modal ul{margin:0;padding-left:2px;list-style:none;display:flex;flex-direction:column;gap:8px;}
+  .modal ul li{position:relative;padding-left:22px;font-size:14px;color:var(--text);opacity:.9;}
+  .modal ul li::before{content:"";position:absolute;left:2px;top:9px;width:6px;height:6px;border-radius:50%;background:var(--accent,var(--gold));opacity:.85;}
+  .callout{background:rgba(95,211,196,.07);border:1px solid rgba(95,211,196,.24);border-radius:12px;padding:13px 15px;font-size:13px;color:var(--text);opacity:.9;margin-top:14px;}
+  .callout b{color:var(--teal);}
+  .srclist{display:flex;flex-direction:column;gap:7px;font-size:12.5px;}
+  .srclist a{color:var(--muted);text-decoration:underline;text-underline-offset:3px;}
+  .srclist a:hover{color:var(--gold-2);}
+
+  .climate{display:grid;grid-template-columns:repeat(12,1fr);gap:4px;padding:14px 12px 8px;background:rgba(127,127,127,.05);border:1px solid var(--line);border-radius:14px;}
+  .cm{display:flex;flex-direction:column;align-items:center;gap:3px;}
+  .cbwrap{height:74px;display:flex;align-items:flex-end;}
+  .cb{width:14px;border-radius:3px;transition:.2s;}
+  .cm .ct{font-size:11px;color:var(--text);font-weight:600;}
+  .cm .cl{font-size:10px;color:var(--muted-2);}
+  .cm.peak .cl{color:var(--gold-2);font-weight:700;}
+  .cm.cur .cb{box-shadow:0 0 0 2px var(--teal);}
+  .climate-note{font-size:11.5px;color:var(--muted-2);margin-top:8px;line-height:1.6;}
+
+  .aff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+  .aff-btn{display:flex;flex-direction:column;gap:3px;align-items:flex-start;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:rgba(233,189,127,.06);cursor:pointer;font-family:inherit;color:var(--text);transition:.2s;text-align:left;}
+  .aff-btn:hover{border-color:rgba(233,189,127,.55);background:rgba(233,189,127,.12);transform:translateY(-1px);}
+  .aff-btn .at{font-size:13.5px;font-weight:600;}
+  .aff-btn .as{font-size:11px;color:var(--muted-2);}
+  .aff-note{background:rgba(233,189,127,.05);border:1px dashed rgba(176,124,42,.35);border-radius:12px;padding:11px 14px;font-size:12px;color:var(--muted);margin-top:12px;}
+  .aff-note b{color:var(--gold-2);}
+  .mactions{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap;}
+  .btn{appearance:none;cursor:pointer;font-family:inherit;font-size:14px;font-weight:600;border-radius:11px;padding:12px 20px;border:1px solid transparent;transition:.2s;display:inline-flex;align-items:center;gap:8px;}
+  .btn-primary{background:linear-gradient(180deg,var(--gold-2),var(--gold));color:#1a1207;}
+  .btn-primary:hover{filter:brightness(1.06);transform:translateY(-1px);}
+  .btn-ghost{background:rgba(127,127,127,.08);border-color:var(--line);color:var(--text);}
+  .btn-ghost:hover{background:rgba(127,127,127,.16);}
+
+  .dash-table{width:100%;border-collapse:collapse;font-size:13px;}
+  .dash-table th,.dash-table td{padding:9px 10px;border-bottom:1px solid var(--line-soft);text-align:left;}
+  .dash-table th{color:var(--muted-2);font-weight:600;font-size:11.5px;letter-spacing:.05em;}
+  .dash-table td.num{text-align:right;font-variant-numeric:tabular-nums;}
+  .dash-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:6px 0 18px;}
+  .dash-kpi{background:rgba(127,127,127,.05);border:1px solid var(--line);border-radius:14px;padding:15px;}
+  .dash-kpi .kv{font-size:24px;font-weight:700;font-family:var(--serif);}
+  .dash-kpi .kk{font-size:11.5px;color:var(--muted-2);letter-spacing:.05em;}
+
+  .toast{position:fixed;left:50%;bottom:30px;transform:translateX(-50%) translateY(20px);background:var(--panel);border:1px solid var(--line);color:var(--text);padding:12px 20px;border-radius:12px;font-size:13.5px;z-index:9500;opacity:0;pointer-events:none;transition:.3s;box-shadow:0 20px 50px -20px #000;}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+  @media (max-width:900px){
+    .stage{grid-template-columns:1fr;}
+    .why-grid{grid-template-columns:repeat(2,1fr);}
+    .months{grid-template-columns:repeat(7,1fr);}
+    .results{max-height:none;}
+    nav.links a:not(.keep){display:none;}
+    .search input{width:100%;} .search{flex:1;} .controls{width:100%;}
+    .aff-grid{grid-template-columns:1fr;}
+    .dash-cards{grid-template-columns:1fr;}
+  }
+  @media (max-width:560px){
+    .hero{padding:40px 0 16px;}
+    .datebox{grid-template-columns:1fr;} .datebox .col + .col{border-left:none;border-top:1px solid var(--line);}
+    .why-grid{grid-template-columns:1fr;}
+    .months{grid-template-columns:repeat(4,1fr);}
+    .climate{gap:2px;padding:10px 6px;}
+    .cb{width:9px;}
+  }
+  /* ===== P0 additions ===== */
+  .cover .cphoto{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:1;}
+  .cover .cglow{z-index:0;} .cover .cemoji{z-index:0;}
+  .cover .cbadge{z-index:3;} .cover .ccredit{z-index:3;}
+  .results.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;align-content:start;}
+  .results.grid > *{flex:unset;}
+  .results.grid .count{grid-column:1/-1;}
+  .results.grid .card .cover{height:112px;}
+  .modal .mclose{background:rgba(0,0,0,.5);color:#fff;border-color:rgba(255,255,255,.28);}
+  .modal .mclose:hover{background:rgba(0,0,0,.72);color:#fff;}
+  .toolbar{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;}
+  .toolbar button{appearance:none;border:none;background:var(--panel);color:var(--muted);font-family:inherit;font-size:12.5px;padding:8px 12px;cursor:pointer;transition:.15s;}
+  .toolbar button.on{background:rgba(233,189,127,.9);color:#1a1207;font-weight:600;}
+  @media (max-width:560px){
+    .results.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;}
+    .results.grid .card .cover{height:94px;}
+    .card-body{padding:10px 11px 11px;}
+    .cover{height:112px;}
+    .cover .cemoji{font-size:44px;}
+  }
+  /* ===== P1 additions ===== */
+  .mapmode{display:flex;gap:8px;margin:2px 4px 10px;position:relative;z-index:5;}
+  .mapmode button{appearance:none;border:1px solid var(--line);background:rgba(127,127,127,.08);color:var(--muted);border-radius:9px;padding:6px 12px;font-family:inherit;font-size:12.5px;cursor:pointer;}
+  .mapmode button.on{background:rgba(233,189,127,.9);color:#1a1207;font-weight:600;border-color:rgba(233,189,127,.9);}
+  .map-wrap{padding:2px 2px 4px;position:relative;z-index:0;}
+  #leafletMap{height:520px;border-radius:14px;overflow:hidden;background:#0b1016;position:relative;z-index:0;isolation:isolate;}
+  body:not(.light) #leafletMap .leaflet-tile{filter:invert(1) hue-rotate(180deg) brightness(.92) contrast(.9);}
+  .leaflet-container{background:#0b1016;font-family:var(--sans);}
+  .pin{display:block;width:14px;height:14px;border-radius:50%;box-shadow:0 0 0 3px rgba(255,255,255,.28),0 0 12px rgba(0,0,0,.5);}
+  .favstar{position:absolute;top:9px;right:9px;z-index:5;width:30px;height:30px;border-radius:50%;border:1px solid rgba(255,255,255,.55);background:rgba(0,0,0,.38);color:#fff;font-size:15px;line-height:1;cursor:pointer;display:grid;place-items:center;padding:0;}
+  .favstar.on{color:#ffd479;background:rgba(0,0,0,.55);border-color:#ffd479;}
+  .official-line{font-size:12.5px;color:var(--muted);margin:2px 0 10px;}
+  .official-line a{color:var(--teal);text-decoration:underline;text-underline-offset:3px;}
+  .mini-cover{width:48px;height:48px;border-radius:8px;object-fit:cover;background:#1a232e;flex:0 0 auto;}
+  .fav-row{display:flex;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line-soft);}
+  .fav-row .fi{flex:1;min-width:0;}
+  .fav-row b{font-family:var(--serif);font-size:14.5px;}
+  .fav-row span{font-size:11.5px;color:var(--muted-2);display:block;}
+  .credits-grid{display:flex;flex-direction:column;gap:2px;}
+  .credit-item{display:flex;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line-soft);font-size:13px;}
+  .credit-item img{width:40px;height:40px;border-radius:6px;object-fit:cover;flex:0 0 auto;background:#1a232e;}
+  .credit-item a{color:var(--teal);text-decoration:underline;text-underline-offset:3px;}
+</style>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap nav">
+    <a class="brand" href="#top">
+      <span class="mark"></span>
+      <span><b>岁时 SeasonAtlas</b><small>WORLD IN SEASON</small></span>
+    </a>
+    <nav class="links">
+      <a href="#explorer" class="keep">季节地图</a>
+      <a href="#why" class="keep">内容政策</a>
+      <button id="favBtn" class="keep">★ 我的行程</button>
+      <button id="dashBtn" class="keep">转化看板</button>
+      <button id="themeBtn" class="theme-btn" title="切换深浅色">☾</button>
+      <span class="demo-tag">原型 Demo</span>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="eyebrow">THE WORLD, IN SEASON</div>
+      <h1>别问去哪，<br />先问<span class="grad">什么时候去</span>。</h1>
+      <p class="lead">岁时把世界上的祭典、自然奇景与一生一次的天象，按季节排进同一张地图。每一场活动都标注
+        <em>官方已公布 / 推估 / 历年规律</em>，写明上次核查日期与出处——让你在刚好的时候，去到刚好的地方。</p>
+      <div class="now" id="nowLine"></div>
+
+      <div class="monthbar">
+        <div class="top">
+          <div class="lab">选择月份 · <b id="monthLabel">全年</b> 的推荐目的地</div>
+          <div class="lab" id="monthHint" style="color:var(--muted-2)">拖动下方地球，或点选月份筛选</div>
+        </div>
+        <div class="months" id="monthStrip"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="explorer" id="explorer">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <div class="eyebrow">SEASON MAP · 季节地图</div>
+          <h2>这个季节，世界正在发生什么</h2>
+          <p>点地球上的光点，或右侧卡片查看详情。每页含月度气候与日历导出。</p>
+        </div>
+        <div class="controls">
+          <div class="control-row">
+            <div class="search">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+              <input id="searchInput" type="text" placeholder="搜目的地 / 国家 / 关键词" />
+            </div>
+            <button class="chip active" data-type="全部">全部</button>
+            <button class="chip" data-type="祭典"><span class="dot" style="color:var(--fest)"></span>祭典</button>
+            <button class="chip" data-type="自然"><span class="dot" style="color:var(--nature)"></span>自然</button>
+            <button class="chip" data-type="现象"><span class="dot" style="color:var(--phenom)"></span>现象</button>
+            <span class="toolbar" title="切换列表 / 网格"><button id="viewListBtn" class="on">☰ 列表</button><button id="viewGridBtn">▦ 网格</button></span>
+          </div>
+          <div class="control-row" id="contRow"></div>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="globe-card">
+          <div class="mapmode"><button id="modeGlobe" class="on">🌐 3D 地球</button><button id="modeMap">🗺 真实地图</button></div>
+          <div class="globe-holder" id="globeHolder">
+            <canvas id="globe"></canvas>
+            <div class="globe-hint">拖动旋转 · 点击光点</div>
+            <div class="globe-legend">
+              <span><i style="background:var(--fest)"></i>祭典</span>
+              <span><i style="background:var(--nature)"></i>自然</span>
+              <span><i style="background:var(--phenom)"></i>现象</span>
+            </div>
+          </div>
+          <div class="map-wrap" id="mapWrap" style="display:none"><div id="leafletMap"></div></div>
+          <div class="globe-caption" id="globeCaption"></div>
+        </div>
+        <div class="results" id="results"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="why" id="why">
+    <div class="wrap">
+      <div class="eyebrow">WHY SEASONATLAS</div>
+      <h2>为什么是「岁时」</h2>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+          <h3>按季节决策</h3><p>别人按地名翻目录，我们按「这个月去哪」给答案。先选时间，世界自己排序。</p>
+        </div>
+        <div class="why-card">
+          <div class="ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8"/><path d="M21 12a9 9 0 1 1-6-8.5"/></svg></div>
+          <h3>日期可核对</h3><p>每场活动标注「官方已公布 / 推估 / 历年规律」，附上次核查日期与官方链接。</p>
+        </div>
+        <div class="why-card">
+          <div class="ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></div>
+          <h3>诚实标注</h3><p>内容由团队整理、AI 辅助研究，配图为示意图，不冒充亲历。可信比煽情更重要。</p>
+        </div>
+        <div class="why-card">
+          <div class="ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
+          <h3>一键进行程</h3><p>目的地页可导出 .ics 日历，把「窗口期」放进你的行程；并接好住宿/门票预订入口。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap fr">
+    <div>
+      <div class="fbrand">岁时 SeasonAtlas · 世界岁时地图</div>
+      <p>本页为可交互原型（Demo）：演示「按季节探索 + 可核对日期 + 月度气候 + 日历导出 + 联盟转化」的产品形态。日期、气温与票价会变动，出行前请以官方公告为准。气温为多年平均高值的近似，仅供参考。</p>
+    </div>
+    <div class="links"><a href="#why">编辑与内容政策</a><a href="dest/all.html">全部目的地页</a><a href="#" id="creditsLink">图片来源与许可</a><a href="#explorer">季节地图</a><a href="#top">回到顶部</a></div>
+  </div>
+</footer>
+
+<div class="overlay" id="overlay"><div class="modal" id="modal" role="dialog" aria-modal="true"></div></div>
+<div class="toast" id="toast"></div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+<script src="data.js"></script>
+<script>
+/* ===================== 岁时 SeasonAtlas 逻辑 ===================== */
+const DATA = (window.SEASON_DATA || []);
+if (!DATA.length) {
+  document.body.insertAdjacentHTML('afterbegin','<div style="padding:20px;color:#f66">数据加载失败：请确认 data.js 与 index.html 在同一目录，并通过浏览器打开 index.html。</div>');
+}
+const TYPE_COLOR = { "祭典": "#ff8f6b", "自然": "#7ad3a0", "现象": "#8fb8ff" };
+const TYPE_CLASS = { "祭典": "t-fest", "自然": "t-nature", "现象": "t-phenom" };
+const STATUS_CLASS = { "官方已公布": "st-confirmed", "推估": "st-estimate", "历年规律": "st-pattern" };
+const HEAT = ['#1b242e','#20323c','#2b5157','#3a7d76','#63b9a3','#e9bd7f'];
+const CONTINENTS = ["全部","亚洲","欧洲","北美洲","南美洲","非洲","大洋洲"];
+
+const state = { month: 0, type: "全部", continent: "全部", q: "", view: "list" };
+const CUR_MONTH = new Date().getMonth() + 1;
+const MONTH_THEME = ["隆冬 · 南半球盛夏","狂欢与极光","春醒 · 樱前线","花季 · 节庆","暮春 · 长昼","初夏 · 北半球旺季","盛夏 · 祭典与迁徙","日食季 · 动物渡河","金秋 · 啤酒与极光","秋色 · 收获","天灯 · 极光季","盐沼镜面 · 南半球夏"];
+
+/* ---------- analytics（内置优先；把 GA4 衡量 ID 填到下面即自动接 GA4） ---------- */
+const ANALYTICS_GA4 = ""; // 例如 "G-XXXXXXXXXX"
+function loadGA4(id){
+  if(!id || window.__ga4loaded) return;
+  window.__ga4loaded = true;
+  const s=document.createElement('script'); s.async=true; s.src='https://www.googletagmanager.com/gtag/js?id='+id; document.head.appendChild(s);
+  window.dataLayer=window.dataLayer||[]; window.gtag=function(){ window.dataLayer.push(arguments); };
+  window.gtag('js', new Date()); window.gtag('config', id);
+}
+function track(ev, params){
+  try{
+    const all = JSON.parse(localStorage.getItem('sa_events')||'{}');
+    all[ev] = all[ev] || { count:0 };
+    all[ev].count++;
+    all[ev].last = new Date().toISOString().slice(0,16).replace('T',' ');
+    localStorage.setItem('sa_events', JSON.stringify(all));
+  }catch(e){}
+  if(window.gtag && ANALYTICS_GA4){ window.gtag('event', ev, params||{}); }
+}
+function getEvents(){ try{ return JSON.parse(localStorage.getItem('sa_events')||'{}'); }catch(e){ return {}; } }
+function resetEvents(){ try{ localStorage.removeItem('sa_events'); }catch(e){} }
+
+/* ---------- theme ---------- */
+function applyTheme(t){
+  const de = document.documentElement;
+  de.classList.add('no-anim');
+  document.body.classList.toggle('light', t==='light');
+  document.getElementById('themeBtn').textContent = t==='light' ? '☀' : '☾';
+  try{ if(typeof lmap!=='undefined' && lmap) applyTiles(); }catch(e){}
+  setTimeout(()=>de.classList.remove('no-anim'), 350);
+}
+function initTheme(){
+  let t = 'dark';
+  try { t = localStorage.getItem('sa-theme') || 'dark'; } catch(e){}
+  const qt = new URLSearchParams(location.search).get('theme');
+  if(qt==='light'||qt==='dark') t = qt;
+  applyTheme(t);
+}
+document.getElementById('themeBtn').addEventListener('click', ()=>{
+  const next = document.body.classList.contains('light') ? 'dark' : 'light';
+  applyTheme(next);
+  try { localStorage.setItem('sa-theme', next); } catch(e){}
+});
+
+/* ---------- filters ---------- */
+function activeList(){
+  return DATA.filter(d=>{
+    const mOk = state.month === 0 || d.months.includes(state.month);
+    const tOk = state.type === "全部" || d.type === state.type;
+    const cOk = state.continent === "全部" || d.continent === state.continent;
+    const q = state.q.trim().toLowerCase();
+    const qOk = !q || (d.name+d.en+d.country+d.continent+d.summary).toLowerCase().includes(q);
+    return mOk && tOk && cOk && qOk;
+  });
+}
+function suitability(d,m){ if(d.peak.includes(m)) return 5; if(d.months.includes(m)) return 3; const adj=d.months.some(x=>Math.abs(x-m)===1); return adj?2:1; }
+
+/* ---------- months ---------- */
+function renderMonths(){
+  const strip = document.getElementById("monthStrip");
+  strip.innerHTML='';
+  const all = document.createElement("button");
+  all.className = "mbtn all" + (state.month===0?" active":"");
+  all.innerHTML = '<span class="n">全年</span><span class="s">ALL</span>';
+  all.onclick = ()=>{ state.month=0; syncMonthUI(); track('filter_month',{month:0}); };
+  strip.appendChild(all);
+  for(let m=1;m<=12;m++){
+    const b = document.createElement("button");
+    b.className = "mbtn" + (state.month===m?" active":"") + (m===CUR_MONTH?" now":"");
+    b.innerHTML = '<span class="n">'+m+'月</span><span class="s">'+(m===CUR_MONTH?"本月":"·")+'</span>';
+    b.onclick = ()=>{ state.month=m; syncMonthUI(); track('filter_month',{month:m}); };
+    strip.appendChild(b);
+  }
+}
+function syncMonthUI(){
+  document.querySelectorAll("#monthStrip .mbtn").forEach((b,i)=> b.classList.toggle("active", i === state.month));
+  document.getElementById("monthLabel").textContent = state.month===0 ? "全年" : (state.month+" 月");
+  document.getElementById("monthHint").textContent = state.month===0 ? "拖动下方地球，或点选月份筛选" : ("本月主题：" + MONTH_THEME[state.month-1]);
+  renderResults(); updateCaption();
+}
+
+/* ---------- results ---------- */
+/* ---------- cover art（主题封面；日后若有真实署名照片，给数据加 img 字段即可替换） ---------- */
+const EMOJI={
+"kyoto-gion":"🏮","chiangmai-yipeng":"🎇","japan-sakura":"🌸","kyoto-momiji":"🍁","sapporo-snow":"❄️","aomori-nebuta":"🏮","akita-kanto":"🏮","furano-lavender":"🪻","zao-juhyo":"🌲","harbin-ice":"🧊","zhangjiajie":"⛰️","jiuzhaigou":"💧","pingxi-lantern":"🏮","dajia-mazu":"🛕","boryeong-mud":"💦","jinju-lantern":"🏮","naadam":"🐎","songkran":"💦","nyepi":"🛕","holi":"🎨","diwali":"🪔","cappadocia-balloon":"🎈",
+"munich-oktoberfest":"🍺","iceland-aurora":"🌌","spain-eclipse-2026":"🌑","keukenhof":"🌷","venice-carnival":"🎭","la-tomatina":"🍅","san-fermin":"🐂","las-fallas":"🔥","notting-hill":"🎉","edinburgh-fringe":"🎭","hogmanay":"🎆","st-patricks":"☘️","kings-day":"👑","nuremberg-christkindl":"🎄","midsommar":"🌼","tomorrowland":"🎧","iceland-ice-cave":"🧊","provence-lavender":"🪻",
+"rio-carnival":"🎭","dia-de-muertos":"💀","mardi-gras":"🎭","burning-man":"🔥","balloon-fiesta":"🎈","inti-raymi":"☀️","uyuni":"🪞","iguazu":"🌊","torres-del-paine":"🏔️","quebec-winter":"⛄","new-england-foliage":"🍁","yellowstone":"♨️",
+"great-migration":"🦓","merzouga":"🐪","deadvlei":"🏜️","namaqua":"🌼","sardine-run":"🐟","fes-sacred-music":"🎶","timkat":"⛪","tsingy-bemaraha":"🪨",
+"sydney-nye":"🎆","great-barrier-reef":"🐠","uluru":"🪨","tekapo":"⭐","milford-sound":"🏔️","great-ocean-road":"🚗"
+};
+const PAL={
+ "祭典":[["#6f2b2b","#d67a3a"],["#7a3d22","#e0a24a"],["#5c2338","#c15a72"]],
+ "自然":[["#1f5d4f","#86b56a"],["#134e5e","#5fb3a1"],["#3a5a2a","#b0b95a"]],
+ "现象":[["#232a5c","#6b7fd0"],["#2a2350","#8f6fd0"],["#123a52","#4f9fd0"]]
+};
+function hashStr(s){let h=0;for(let i=0;i<s.length;i++)h=(h*31+s.charCodeAt(i))>>>0;return h;}
+function emojiFor(d){ return EMOJI[d.id] || (d.type==='祭典'?'🎉':d.type==='自然'?'🏞️':'🌌'); }
+function coverStyle(d){ const arr=PAL[d.type]||PAL['自然']; const p=arr[hashStr(d.id)%arr.length]; return '--c1:'+p[0]+';--c2:'+p[1]; }
+function coverHTML(d,extraClass){
+  if(d.img){
+    const src = (extraClass==='mhero') ? (d.img||d.imgSm) : (d.imgSm||d.img);
+    const credit = d.imgCredit ? '<a class="ccredit" href="'+(d.imgLink||'#')+'" target="_blank" rel="noopener">📷 Photo by '+d.imgCredit+' on Unsplash</a>' : '';
+    return '<div class="cover '+(extraClass||'')+'" style="'+coverStyle(d)+'">'+
+      '<span class="cglow"></span><span class="cemoji">'+emojiFor(d)+'</span>'+
+      '<img class="cphoto" loading="lazy" decoding="async" src="'+src+'" alt="'+d.name+'" onerror="this.remove()">'+
+      '<span class="cbadge">'+d.type+'</span>'+credit+'</div>';
+  }
+  return '<div class="cover '+(extraClass||'')+'" style="'+coverStyle(d)+'"><span class="cglow"></span><span class="cbadge">'+d.type+'</span><span class="cemoji">'+emojiFor(d)+'</span></div>';
+}
+
+function renderResults(){
+  const box = document.getElementById("results");
+  const list = activeList();
+  box.classList.toggle("grid", state.view === "grid");
+  box.innerHTML = "";
+  const cnt = document.createElement("div");
+  cnt.className = "count";
+  cnt.textContent = "共 " + list.length + " 个目的地" + (state.month? " · " + state.month + " 月" : " · 全年") + (state.continent!=="全部"?" · "+state.continent:"");
+  box.appendChild(cnt);
+  if(list.length===0){
+    const e = document.createElement("div"); e.className="empty";
+    e.textContent = "这个条件下暂时没有目的地，换个季节、类型或地区看看。";
+    box.appendChild(e); return;
+  }
+  const cur = CUR_MONTH;
+  list.forEach(d=>{
+    const c = document.createElement("div");
+    c.className = "card"; c.style.setProperty("--accent", TYPE_COLOR[d.type]);
+    const heat = '<div class="heat">'+
+      Array.from({length:12},(_,i)=>{ const m=i+1; const s=suitability(d,m);
+        const cls = (d.peak.includes(m)?'peak':'')+(m===cur?' cur':'');
+        return '<b class="'+cls+'" style="background:'+HEAT[s]+'" title="'+m+'月 适宜度'+s+'/5 · '+d.temps[i]+'°C"></b>';
+      }).join('')+'</div>';
+    c.innerHTML =
+      coverHTML(d)+
+      '<button class="favstar'+(isFav(d.id)?' on':'')+'" data-fav="'+d.id+'" title="收藏到我的行程">'+(isFav(d.id)?'★':'☆')+'</button>'+
+      '<div class="card-body">'+
+        '<div class="name">'+d.name+'</div>'+
+        '<div class="en">'+d.en+' · '+d.country+'</div>'+
+        '<div class="meta">'+
+          '<span class="tag '+TYPE_CLASS[d.type]+'">'+d.type+'</span>'+
+          '<span class="tag st '+STATUS_CLASS[d.status]+'">'+d.status+'</span>'+
+          '<span>最佳 <b>'+d.best+'</b></span>'+
+        '</div>'+
+        '<div class="sum">'+d.summary+'</div>'+ heat+
+      '</div>';
+    c.onclick = ()=> openDetail(d.id);
+    const favEl = c.querySelector('.favstar');
+    if(favEl){ favEl.onclick = (ev)=>{ ev.stopPropagation(); toggleFav(d.id); }; }
+    box.appendChild(c);
+  });
+}
+
+/* ---------- caption ---------- */
+function updateCaption(){
+  const cap = document.getElementById("globeCaption");
+  if(state.month===0){
+    cap.textContent = "全年 " + activeList().length + " 个目的地 · 光点越亮＝正在当季；把鼠标移上去看名字";
+  } else {
+    const names = activeList().map(d=>d.name).slice(0,3).join("、");
+    cap.textContent = state.month + " 月正当时：" + (names || "暂无");
+  }
+}
+
+/* ---------- globe ---------- */
+const canvas = document.getElementById("globe");
+const ctx = canvas.getContext("2d");
+let W=600,H=600,cx=300,cy=300,R=250;
+let rotY = -0.6, tilt = 0.34, spin = 0.0016;
+let dragging=false, lastX=0, lastY=0, moved=false, lastInteract=0;
+let hoveredId=null, selectedId=null, pinScreens=[];
+let globeVisible=true;
+const REDUCE = (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+
+function sizeCanvas(){
+  const holder = canvas.parentElement;
+  const avail = holder.clientWidth || 600;
+  const size = Math.max(280, Math.min(avail, 620));
+  const dpr = window.devicePixelRatio || 1;
+  canvas.style.width = size+"px"; canvas.style.height = size+"px";
+  canvas.width = Math.round(size*dpr); canvas.height = Math.round(size*dpr);
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+  W=H=size; cx=W/2; cy=H/2; R=size*0.42;
+}
+function project(latDeg,lngDeg){
+  const lat=latDeg*Math.PI/180, lon=lngDeg*Math.PI/180;
+  const x0=Math.cos(lat)*Math.sin(lon), y0=Math.sin(lat), z0=Math.cos(lat)*Math.cos(lon);
+  const cY=Math.cos(rotY), sY=Math.sin(rotY);
+  const x1=x0*cY+z0*sY, z1=-x0*sY+z0*cY;
+  const cX=Math.cos(tilt), sX=Math.sin(tilt);
+  const y2=y0*cX-z1*sX, z2=y0*sX+z1*cX;
+  return { x: cx+x1*R, y: cy-y2*R, z: z2 };
+}
+function drawSphere(){
+  const g=ctx.createRadialGradient(cx-R*0.35,cy-R*0.4,R*0.1,cx,cy,R*1.15);
+  g.addColorStop(0,"rgba(38,58,72,.9)"); g.addColorStop(.55,"rgba(16,26,36,.92)"); g.addColorStop(1,"rgba(7,11,16,.96)");
+  ctx.beginPath(); ctx.arc(cx,cy,R,0,Math.PI*2); ctx.fillStyle=g; ctx.fill();
+  ctx.lineWidth=1; ctx.strokeStyle="rgba(120,160,180,.28)"; ctx.beginPath(); ctx.arc(cx,cy,R,0,Math.PI*2); ctx.stroke();
+}
+function drawGraticule(){
+  for(let lat=-60; lat<=60; lat+=30){
+    ctx.beginPath(); let st=false;
+    for(let lng=-180; lng<=180; lng+=4){ const p=project(lat,lng);
+      if(p.z>0){ if(!st){ctx.moveTo(p.x,p.y);st=true;} else ctx.lineTo(p.x,p.y);} else st=false; }
+    ctx.strokeStyle = lat===0 ? "rgba(150,190,205,.28)" : "rgba(120,160,180,.12)"; ctx.stroke();
+  }
+  for(let lng=-180; lng<180; lng+=30){
+    ctx.beginPath(); let st=false;
+    for(let lat=-90; lat<=90; lat+=4){ const p=project(lat,lng);
+      if(p.z>0){ if(!st){ctx.moveTo(p.x,p.y);st=true;} else ctx.lineTo(p.x,p.y);} else st=false; }
+    ctx.strokeStyle="rgba(120,160,180,.12)"; ctx.stroke();
+  }
+}
+function hexA(hex,a){ const n=parseInt(hex.slice(1),16); return "rgba("+((n>>16)&255)+","+((n>>8)&255)+","+(n&255)+","+a+")"; }
+function drawPins(){
+  pinScreens=[];
+  const activeIds=new Set(activeList().map(d=>d.id));
+  const pts=DATA.map(d=>({d,p:project(d.lat,d.lng)})).filter(o=>o.p.z>0).sort((a,b)=>a.p.z-b.p.z);
+  pts.forEach(({d,p})=>{
+    const isActive=activeIds.has(d.id), isSel=d.id===selectedId, isHov=d.id===hoveredId;
+    const color=isActive?TYPE_COLOR[d.type]:"#54636f";
+    const rr=isSel?7:isHov?6:isActive?4.2:2.4;
+    if(isActive){ const gl=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,rr*4);
+      gl.addColorStop(0,hexA(color,.5)); gl.addColorStop(1,hexA(color,0)); ctx.fillStyle=gl;
+      ctx.beginPath(); ctx.arc(p.x,p.y,rr*4,0,Math.PI*2); ctx.fill(); }
+    ctx.beginPath(); ctx.arc(p.x,p.y,rr,0,Math.PI*2); ctx.fillStyle=color; ctx.fill();
+    if(isSel){ ctx.lineWidth=1.5; ctx.strokeStyle="rgba(255,255,255,.9)"; ctx.stroke(); }
+    pinScreens.push({id:d.id,x:p.x,y:p.y,r:Math.max(rr,9)});
+  });
+  const showLabels = activeIds.size <= 16;
+  const labelBoxes=[];
+  const order=pts.filter(o=>activeIds.has(o.d.id)).sort((a,b)=>{
+    const pa=(a.d.id===selectedId||a.d.id===hoveredId)?0:1, pb=(b.d.id===selectedId||b.d.id===hoveredId)?0:1;
+    if(pa!==pb) return pa-pb; return b.p.z-a.p.z; });
+  order.forEach(({d,p})=>{
+    const isSel=d.id===selectedId, isHov=d.id===hoveredId;
+    if(!showLabels && !isHov && !isSel) return;
+    const rr=isSel?7:isHov?6:4.2;
+    ctx.font="600 "+(isHov||isSel?12.5:11)+"px -apple-system,'PingFang SC','Microsoft YaHei',sans-serif";
+    const label=d.name.length>10?d.name.slice(0,9)+"…":d.name;
+    const w=ctx.measureText(label).width, hgt=(isHov||isSel?12.5:11)+4;
+    const bx=p.x-w/2-4, by=p.y-rr-4-hgt, bw=w+8, bh=hgt+2, force=isHov||isSel;
+    if(!force && labelBoxes.some(b=>!(bx>b.x+b.w||bx+bw<b.x||by>b.y+b.h||by+bh<b.y))) return;
+    labelBoxes.push({x:bx,y:by,w:bw,h:bh});
+    ctx.fillStyle=isHov||isSel?"#fff":"rgba(230,238,243,.82)";
+    ctx.textAlign="center"; ctx.textBaseline="bottom";
+    ctx.shadowColor="rgba(0,0,0,.8)"; ctx.shadowBlur=4; ctx.fillText(label,p.x,p.y-rr-4); ctx.shadowBlur=0;
+  });
+}
+function frame(){
+  if(!globeVisible){ requestAnimationFrame(frame); return; }
+  if(!dragging && !REDUCE && Date.now()-lastInteract>1400) rotY+=spin;
+  ctx.clearRect(0,0,W,H); drawSphere(); drawGraticule(); drawPins();
+  requestAnimationFrame(frame);
+}
+function pointerPos(e){ const r=canvas.getBoundingClientRect(); return {x:e.clientX-r.left,y:e.clientY-r.top}; }
+canvas.addEventListener("pointerdown",e=>{ dragging=true; moved=false; lastX=e.clientX; lastY=e.clientY; lastInteract=Date.now(); canvas.setPointerCapture(e.pointerId); });
+canvas.addEventListener("pointermove",e=>{
+  const pos=pointerPos(e);
+  if(dragging){ const dx=e.clientX-lastX, dy=e.clientY-lastY; if(Math.abs(dx)+Math.abs(dy)>2) moved=true;
+    rotY+=dx*0.006; tilt=Math.max(-1.2,Math.min(1.2,tilt+dy*0.006)); lastX=e.clientX; lastY=e.clientY; lastInteract=Date.now(); }
+  else { const hit=hitTest(pos); if(hit!==hoveredId){ hoveredId=hit; canvas.style.cursor=hit?"pointer":"grab"; } }
+});
+canvas.addEventListener("pointerup",e=>{ if(!moved){ const hit=hitTest(pointerPos(e)); if(hit) openDetail(hit); } dragging=false; lastInteract=Date.now(); });
+canvas.addEventListener("pointerleave",()=>{ dragging=false; hoveredId=null; });
+function hitTest(pos){ let best=null,bd=20; for(const p of pinScreens){ const d=Math.hypot(p.x-pos.x,p.y-pos.y); if(d<Math.max(bd,p.r)){bd=d;best=p.id;} } return best; }
+
+/* ---------- detail ---------- */
+const overlay=document.getElementById("overlay"), modal=document.getElementById("modal");
+function climateHTML(d){
+  const cur=CUR_MONTH;
+  let cols='';
+  for(let m=1;m<=12;m++){
+    const s=suitability(d,m), isPeak=d.peak.includes(m), isCur=m===cur;
+    const h=8+s*12;
+    cols+='<div class="cm'+(isPeak?' peak':'')+(isCur?' cur':'')+'">'+
+      '<div class="cbwrap"><div class="cb" style="height:'+h+'px;background:'+HEAT[s]+'"></div></div>'+
+      '<div class="ct">'+d.temps[m-1]+'°</div><div class="cl">'+m+'</div></div>';
+  }
+  return '<div class="climate">'+cols+'</div>'+
+    '<div class="climate-note">适宜度（柱高，5=最佳）依据活动窗口与气候整理；气温为月均高温近似值（°C），仅供规划参考，出行前请查当地预报。金框＝最佳窗口，青色框＝当前月。</div>';
+}
+function affHTML(d){
+  return '<div class="official-line">官方页面：<a href="'+d.official+'" target="_blank" rel="noopener">查看官网 / 官方信息 ↗</a> · 票价与预约以官网为准</div>'+
+  '<div class="aff-grid">'+
+    '<button class="aff-btn" data-aff="stay"><span class="at">🏨 住宿</span><span class="as">'+d.affiliate.city+' 附近房源</span></button>'+
+    '<button class="aff-btn" data-aff="ticket"><span class="at">🎟 门票 / 体验</span><span class="as">'+d.name+' 相关</span></button>'+
+    '<button class="aff-btn" data-aff="flight"><span class="at">✈ 机票</span><span class="as">飞往 '+d.affiliate.city+'</span></button>'+
+  '</div>'+
+  '<div class="aff-note"><b>演示联盟位</b> · 点击将打开对应平台的搜索页（Booking / Klook / Google Flights），并记入「转化看板」。上线时把占位参数替换为真实 tracking id 与分佣链接即可跑通结算。</div>';
+}
+function openDetail(id){
+  const d=DATA.find(x=>x.id===id); if(!d) return;
+  selectedId=id; modal.style.setProperty("--accent",TYPE_COLOR[d.type]);
+  track('open_detail',{id:id});
+  const src=d.sources.map(s=>'<a href="'+s.u+'" target="_blank" rel="noopener">'+s.t+' ↗</a>').join("");
+  modal.innerHTML=
+    coverHTML(d,'mhero')+
+    '<div class="mhead"><button class="mclose" aria-label="关闭">✕</button>'+
+      '<div class="mtags"><span class="tag '+TYPE_CLASS[d.type]+'">'+d.type+'</span>'+
+      '<span class="tag st '+STATUS_CLASS[d.status]+'">'+d.status+'</span>'+
+      '<span class="tag" style="color:var(--muted);border-color:var(--line)">'+d.continent+'</span></div>'+
+      '<h2>'+d.name+'</h2><div class="men">'+d.en+' · '+d.country+'</div></div>'+
+    '<div class="mbody">'+
+      '<div class="datebox">'+
+        '<div class="col"><div class="k">最佳时间</div><div class="v">'+d.best+'</div><div class="vsub">'+d.statusNote+'</div></div>'+
+        '<div class="col"><div class="k">上次核查</div><div class="v" style="font-size:13.5px">'+d.lastChecked+'</div><div class="vsub">官方出处：<a href="'+d.official+'" target="_blank" rel="noopener">查看 ↗</a></div></div>'+
+      '</div>'+
+      '<h4>这是什么</h4><p class="par">'+d.summary+'</p>'+
+      '<h4>不能错过</h4><ul>'+d.highlights.map(h=>'<li>'+h+'</li>').join('')+'</ul>'+
+      '<h4>旅人提醒</h4><ul>'+d.tips.map(h=>'<li>'+h+'</li>').join('')+'</ul>'+
+      '<h4>月度热力与气温</h4>'+climateHTML(d)+
+      '<div class="callout"><b>编辑核实笔记</b> · '+d.note+'</div>'+
+      '<h4>预订 / 官网（演示）</h4>'+affHTML(d)+
+      '<h4>资料来源</h4><div class="srclist">'+src+'</div>'+
+      '<div class="mactions">'+(d.imgDownload?'<button class="btn btn-ghost" id="dlBtn">⬇ 下载原图（触发 Unsplash 下载事件）</button>':'')+'<button class="btn btn-primary" id="icsBtn">📅 加入日历（.ics）</button><button class="btn btn-ghost" id="shareBtn">复制链接</button><button class="btn btn-ghost" id="favDetailBtn">☆ 收藏</button></div>'+
+    '</div>';
+  hideMapForOverlay();
+  overlay.classList.add("open"); document.body.style.overflow="hidden";
+  modal.querySelector(".mclose").onclick=closeDetail;
+  document.getElementById("icsBtn").onclick=()=>downloadICS(d);
+  document.getElementById("shareBtn").onclick=()=>shareCopy(d);
+  if(document.getElementById("dlBtn")) document.getElementById("dlBtn").onclick=()=>{ window.open(d.imgDownload,"_blank","noopener"); };
+  const fdb=document.getElementById("favDetailBtn");
+  if(fdb){ fdb.textContent = isFav(d.id)?'★ 已收藏':'☆ 收藏'; fdb.onclick=()=>{ toggleFav(d.id); fdb.textContent=isFav(d.id)?'★ 已收藏':'☆ 收藏'; renderResults(); }; }
+  modal.querySelectorAll(".aff-btn").forEach(b=> b.onclick=()=>openPartner(d, b.dataset.aff));
+}
+function closeDetail(){ overlay.classList.remove("open"); document.body.style.overflow=""; selectedId=null; restoreMapAfterOverlay(); }
+/* 打开弹窗时把 Leaflet 地图临时隐藏，避免其内部高层级面板遮挡弹窗 */
+let mapWasVisible = null;
+function hideMapForOverlay(){
+  const w = document.getElementById('mapWrap');
+  if(!w) return;
+  mapWasVisible = (w.style.display !== 'none');
+  if(mapWasVisible){ w.style.display = 'none'; }
+}
+function restoreMapAfterOverlay(){
+  if(mapWasVisible === true){
+    const w = document.getElementById('mapWrap');
+    if(w){
+      w.style.display = '';
+      if(lmap){ setTimeout(function(){ try{ lmap.invalidateSize(); }catch(e){} }, 80); }
+    }
+  }
+  mapWasVisible = null;
+}
+overlay.addEventListener("click",e=>{ if(e.target===overlay) closeDetail(); });
+document.addEventListener("keydown",e=>{ if(e.key==="Escape") closeDetail(); });
+
+/* ---------- affiliate ---------- */
+function partnerUrl(d,kind){
+  const c=encodeURIComponent(d.affiliate.city), n=encodeURIComponent(d.name);
+  if(kind==="stay") return "https://www.booking.com/searchresults.html?ss="+c+"&aid=DEMO_SEASONATLAS";
+  if(kind==="ticket") return "https://www.klook.com/zh-CN/search/result/?query="+n;
+  return "https://www.google.com/travel/flights?q=Flights%20to%20"+c;
+}
+function openPartner(d,kind){
+  const url=partnerUrl(d,kind);
+  recordClick(d.id,kind);
+  track('affiliate_click',{id:d.id,kind:kind});
+  window.open(url,"_blank","noopener");
+  const label = kind==="stay"?"住宿":kind==="ticket"?"门票/体验":"机票";
+  toast("已打开「"+label+"」搜索，并记录一次点击（演示）");
+}
+function getClicks(){ try{ return JSON.parse(localStorage.getItem("sa_aff_clicks")||"{}"); }catch(e){ return {}; } }
+function recordClick(id,kind){
+  const c=getClicks();
+  c[id]=c[id]||{count:0,kinds:{}};
+  c[id].count++; c[id].kinds[kind]=(c[id].kinds[kind]||0)+1;
+  try{ localStorage.setItem("sa_aff_clicks",JSON.stringify(c)); }catch(e){}
+}
+
+/* ---------- dashboard ---------- */
+function openDashboard(){
+  const c=getClicks();
+  const rows=DATA.map(d=>({d,n:(c[d.id]&&c[d.id].count)||0})).filter(x=>x.n>0).sort((a,b)=>b.n-a.n);
+  const total=rows.reduce((s,x)=>s+x.n,0);
+  const convRate=0.025, avgCommission=180;
+  const conv=total*convRate, rev=conv*avgCommission;
+  const rowsHTML = rows.length ? rows.map(x=>
+    '<tr><td>'+x.d.name+'</td><td style="color:var(--muted-2)">'+x.d.country+'</td><td class="num">'+x.n+'</td>'+
+    '<td class="num">'+(x.n*convRate).toFixed(2)+'</td><td class="num">¥'+(x.n*convRate*avgCommission).toFixed(0)+'</td></tr>').join('')
+    : '<tr><td colspan="5" style="color:var(--muted);text-align:center;padding:22px">还没有点击。打开任一目的地，点「住宿/门票/机票」即会记录。</td></tr>';
+  const EV=getEvents();
+  const evOrder=[['filter_month','筛选月份'],['filter_type','筛选类型'],['filter_continent','筛选地区'],['map_view','打开地图'],['open_detail','打开详情'],['affiliate_click','联盟点击'],['export_ics','导出单个日历'],['export_ics_all','导出行程'],['favorite','收藏']];
+  const evHTML = evOrder.map(function(p){ const k=p[0],label=p[1]; return EV[k]?('<tr><td>'+label+' <span style="color:var(--muted-2);font-size:11px">('+k+')</span></td><td class="num">'+EV[k].count+'</td><td style="color:var(--muted-2);font-size:11.5px">'+(EV[k].last||'')+'</td></tr>'):''; }).join('') || '<tr><td colspan="3" style="color:var(--muted);text-align:center;padding:16px">还没有事件。试试筛选月份、打开详情、收藏或点联盟位。</td></tr>';
+  modal.style.setProperty("--accent","var(--gold)");
+  modal.innerHTML=
+    '<div class="mhead"><button class="mclose" aria-label="关闭">✕</button>'+
+      '<div class="mtags"><span class="tag st st-confirmed">演示数据</span></div>'+
+      '<h2>转化看板</h2><div class="men">联盟点击记录（本地存储）· 用于演示变现闭环</div></div>'+
+    '<div class="mbody">'+
+      '<div class="dash-cards">'+
+        '<div class="dash-kpi"><div class="kv">'+total+'</div><div class="kk">联盟点击</div></div>'+
+        '<div class="dash-kpi"><div class="kv">'+conv.toFixed(1)+'</div><div class="kk">估算成交（点击 × 2.5%）</div></div>'+
+        '<div class="dash-kpi"><div class="kv">¥'+rev.toFixed(0)+'</div><div class="kk">估算分佣（成交 × ¥180）</div></div>'+
+      '</div>'+
+      '<table class="dash-table"><thead><tr><th>目的地</th><th>地区</th><th class="num">点击</th><th class="num">估算成交</th><th class="num">估算分佣</th></tr></thead><tbody>'+rowsHTML+'</tbody></table>'+
+      '<h4>事件埋点（内置 localStorage）</h4><table class="dash-table"><thead><tr><th>事件</th><th class="num">次数</th><th>最近</th></tr></thead><tbody>'+evHTML+'</tbody></table>'+
+      '<div class="aff-note" style="margin-top:12px"><b>接 GA4</b> · 把 index.html 顶部 ANALYTICS_GA4 填成你的衡量 ID（G-XXXXXXX）即自动上报同样的 gt 事件；留空则只本地统计。</div>'+
+      '<div class="aff-note" style="margin-top:12px"><b>说明</b> · 这是可跑通的演示：点击真实打开 Booking / Klook / Google Flights 搜索页并本地计数。真实上线后替换为联盟 tracking id，即可对接佣金结算（如 Booking 约 4%、Klook 依品类）。成交率与客单价为假设值，仅用于演示。</div>'+
+      '<div class="mactions"><button class="btn btn-ghost" id="resetBtn">清空演示数据</button></div>'+
+    '</div>';
+  hideMapForOverlay();
+  overlay.classList.add("open"); document.body.style.overflow="hidden";
+  modal.querySelector(".mclose").onclick=closeDetail;
+  document.getElementById("resetBtn").onclick=()=>{ try{localStorage.removeItem("sa_aff_clicks"); localStorage.removeItem("sa_events");}catch(e){}; toast("已清空演示数据"); openDashboard(); };
+}
+document.getElementById("dashBtn").addEventListener("click",openDashboard);
+
+/* ---------- ics / share ---------- */
+function downloadICS(d){
+  const stamp=new Date().toISOString().replace(/[-:]/g,"").split(".")[0]+"Z";
+  const ics=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//SeasonAtlas//CN","CALSCALE:GREGORIAN",
+    "BEGIN:VEVENT","UID:"+d.id+"-"+Date.now()+"@seasonatlas","DTSTAMP:"+stamp,
+    "DTSTART;VALUE=DATE:"+d.icsStart,"DTEND;VALUE=DATE:"+d.icsEnd,
+    "SUMMARY:"+d.name+"（岁时 SeasonAtlas）","LOCATION:"+d.country,
+    "DESCRIPTION:"+d.best+"\\n"+d.statusNote.replace(/,/g,"，")+"\\n资料来源："+d.official,
+    "END:VEVENT","END:VCALENDAR"].join("\r\n");
+  const blob=new Blob([ics],{type:"text/calendar;charset=utf-8"});
+  const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download=d.id+".ics";
+  document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(a.href),2000);
+  track('export_ics',{id:d.id});
+  toast("已生成 "+d.name+" 的日历文件");
+}
+function shareCopy(d){
+  const base = location.href.split('#')[0];
+  const url = base + '#d=' + encodeURIComponent(d.id);
+  navigator.clipboard.writeText(url).then(
+    ()=>toast("已复制该目的地的分享链接"),
+    ()=>{ const txt=d.name+"｜"+d.best+"｜"+d.country+" — "+url; navigator.clipboard.writeText(txt).then(()=>toast("已复制分享文案"),()=>toast("复制失败，请手动复制")); }
+  );
+}
+let toastTimer=null;
+function toast(msg){ const t=document.getElementById("toast"); t.textContent=msg; t.classList.add("show"); clearTimeout(toastTimer); toastTimer=setTimeout(()=>t.classList.remove("show"),2200); }
+
+/* ---------- favorites / itinerary ---------- */
+function getFavs(){ try{ const a=JSON.parse(localStorage.getItem('sa_favs')||'[]'); return Array.isArray(a)?a:[]; }catch(e){ return []; } }
+function saveFavs(a){ try{ localStorage.setItem('sa_favs', JSON.stringify(a)); }catch(e){} updateFavBadge(); }
+function isFav(id){ return getFavs().indexOf(id)>=0; }
+function toggleFav(id){ let a=getFavs(); if(a.indexOf(id)>=0){ a=a.filter(x=>x!==id); } else { a.push(id); } saveFavs(a); track('favorite',{id:id,on:a.indexOf(id)>=0}); renderResults(); }
+function updateFavBadge(){ const n=getFavs().length; const b=document.getElementById('favBtn'); if(b) b.textContent='★ 我的行程'+(n?(' ('+n+')'):''); }
+function openFavs(){
+  const favs=getFavs(); const items=DATA.filter(d=>favs.indexOf(d.id)>=0);
+  const rows = items.length ? items.map(d=>{
+    const src=d.imgSm||d.img||'';
+    const cover = src? '<img class="mini-cover" src="'+src+'" alt="">' : '<div class="mini-cover" style="display:grid;place-items:center;font-size:20px">'+emojiFor(d)+'</div>';
+    return '<div class="fav-row">'+cover+'<div class="fi"><b>'+d.name+'</b><span>'+d.country+' · 最佳 '+d.best+'</span></div>'+
+      '<button class="btn btn-ghost" style="padding:7px 12px" data-open="'+d.id+'">查看</button>'+
+      '<button class="btn btn-ghost" style="padding:7px 12px" data-rm="'+d.id+'">移除</button></div>';
+  }).join('') : '<div class="empty">还没有收藏。点卡片右上角 ☆ 或详情页「收藏」加入行程。</div>';
+  modal.style.setProperty("--accent","var(--gold)");
+  modal.innerHTML='<div class="mhead"><button class="mclose" aria-label="关闭">✕</button><div class="mtags"><span class="tag st st-confirmed">我的行程</span></div><h2>我的行程</h2><div class="men">已收藏 '+items.length+' 个目的地 · 可一次性导出日历</div></div>'+
+   '<div class="mbody">'+rows+
+   '<div class="mactions">'+(items.length?'<button class="btn btn-primary" id="exportAllBtn">📅 导出全部（.ics）</button>':'')+'<button class="btn btn-ghost" id="clearFavBtn">清空</button></div></div>';
+  hideMapForOverlay();
+  overlay.classList.add("open"); document.body.style.overflow="hidden";
+  modal.querySelector(".mclose").onclick=closeDetail;
+  modal.querySelectorAll('[data-open]').forEach(b=> b.onclick=()=>openDetail(b.getAttribute('data-open')));
+  modal.querySelectorAll('[data-rm]').forEach(b=> b.onclick=()=>{ toggleFav(b.getAttribute('data-rm')); openFavs(); });
+  const ea=document.getElementById('exportAllBtn'); if(ea) ea.onclick=()=>exportAllICS(items);
+  document.getElementById('clearFavBtn').onclick=()=>{ saveFavs([]); toast('已清空我的行程'); openFavs(); };
+}
+function exportAllICS(items){
+  if(!items.length) return;
+  const stamp=new Date().toISOString().replace(/[-:]/g,'').split('.')[0]+'Z';
+  let evs='';
+  items.forEach(d=>{ evs+='BEGIN:VEVENT\r\nUID:'+d.id+'-'+stamp+'@seasonatlas\r\nDTSTAMP:'+stamp+'\r\nDTSTART;VALUE=DATE:'+d.icsStart+'\r\nDTEND;VALUE=DATE:'+d.icsEnd+'\r\nSUMMARY:'+d.name+'（岁时 SeasonAtlas）\r\nLOCATION:'+d.country+'\r\nDESCRIPTION:'+d.best+'\r\nEND:VEVENT\r\n'; });
+  const ics='BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//SeasonAtlas//CN\r\nCALSCALE:GREGORIAN\r\n'+evs+'END:VCALENDAR';
+  const blob=new Blob([ics],{type:'text/calendar;charset=utf-8'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='seasonatlas-itinerary.ics'; document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(a.href),2000);
+  track('export_ics_all',{count:items.length});
+  toast('已导出 '+items.length+' 个目的地到日历');
+}
+
+/* ---------- real map (Leaflet + OSM/CARTO) ---------- */
+let lmap=null, lcluster=null, tileLayer=null;
+function initMap(){
+  if(lmap || !window.L) return;
+  lmap=L.map('leafletMap',{zoomControl:true,worldCopyJump:true}).setView([22,10],2);
+  applyTiles();
+  lcluster = L.markerClusterGroup ? L.markerClusterGroup({maxClusterRadius:52}) : L.layerGroup();
+  DATA.forEach(d=>{
+    const icon=L.divIcon({className:'',html:'<span class="pin" style="background:'+TYPE_COLOR[d.type]+'"></span>',iconSize:[14,14],iconAnchor:[7,7]});
+    const mk=L.marker([d.lat,d.lng],{icon:icon,title:d.name});
+    mk.bindPopup('<b>'+d.name+'</b><br><span style="color:#8ea3b4">'+d.country+'</span><br><a href="#" style="color:#5fd3c4">查看详情 →</a>');
+    mk.on('popupopen', function(e){ const el=e.popup.getElement(); const a=el.querySelector('a'); if(a) a.onclick=function(ev){ ev.preventDefault(); openDetail(d.id); }; });
+    lcluster.addLayer(mk);
+  });
+  lmap.addLayer(lcluster);
+  track('map_view',{});
+}
+function applyTiles(){
+  if(!lmap) return;
+  if(tileLayer) lmap.removeLayer(tileLayer);
+  tileLayer=L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Tiles © Esri'});
+  tileLayer.addTo(lmap);
+}
+function setMode(m){
+  const mapMode=(m==='map');
+  document.getElementById('globeHolder').style.display = mapMode?'none':'';
+  document.getElementById('mapWrap').style.display = mapMode?'':'none';
+  document.getElementById('modeGlobe').classList.toggle('on',!mapMode);
+  document.getElementById('modeMap').classList.toggle('on',mapMode);
+  if(mapMode){ initMap(); if(lmap){ setTimeout(()=>lmap.invalidateSize(),60); } }
+}
+
+/* ---------- credits / licenses ---------- */
+function openCredits(){
+  const items=DATA.filter(d=>d.img);
+  const rows=items.map(d=>'<div class="credit-item"><img src="'+(d.imgSm||d.img)+'" alt=""><div style="flex:1;min-width:0"><b style="font-family:var(--serif);font-size:13.5px">'+d.name+'</b><br><a href="'+(d.imgLink||'#')+'" target="_blank" rel="noopener">Photo by '+d.imgCredit+' on Unsplash ↗</a></div></div>').join('');
+  modal.style.setProperty("--accent","var(--gold)");
+  modal.innerHTML='<div class="mhead"><button class="mclose" aria-label="关闭">✕</button><div class="mtags"><span class="tag st st-confirmed">版权与来源</span></div><h2>图片来源与许可</h2><div class="men">'+items.length+' 张实拍来自 Unsplash（Unsplash License），其余为原创示意封面</div></div>'+
+   '<div class="mbody"><div class="credits-grid">'+rows+'</div><div class="aff-note" style="margin-top:14px">照片通过 Unsplash API 获取并热链至 images.unsplash.com，遵循 Unsplash License；摄影师与 Unsplash 均已署名并链接。示意封面为原创生成，不涉及第三方版权。</div></div>';
+  hideMapForOverlay();
+  overlay.classList.add("open"); document.body.style.overflow="hidden";
+  modal.querySelector(".mclose").onclick=closeDetail;
+}
+
+/* ---------- controls ---------- */
+function buildContRow(){
+  const row=document.getElementById("contRow"); row.innerHTML='';
+  CONTINENTS.forEach(c=>{
+    const b=document.createElement("button");
+    b.className="chip mini"+(state.continent===c?" active":"");
+    b.textContent=c;
+    b.onclick=()=>{ state.continent=c; buildContRow(); renderResults(); updateCaption(); track('filter_continent',{continent:c}); };
+    row.appendChild(b);
+  });
+}
+document.getElementById("searchInput").addEventListener("input",e=>{ state.q=e.target.value; renderResults(); updateCaption(); });
+document.querySelectorAll('.chip[data-type]').forEach(c=>{
+  c.addEventListener("click",()=>{
+    document.querySelectorAll('.chip[data-type]').forEach(x=>x.classList.remove("active"));
+    c.classList.add("active"); state.type=c.dataset.type; renderResults(); updateCaption(); track('filter_type',{type:c.dataset.type});
+  });
+});
+function setViewUI(){
+  state.view = (state.view==='grid') ? 'grid' : 'list';
+  const vl=document.getElementById("viewListBtn"), vg=document.getElementById("viewGridBtn");
+  if(vl) vl.classList.toggle("on", state.view==="list");
+  if(vg) vg.classList.toggle("on", state.view==="grid");
+  renderResults();
+}
+document.getElementById("viewListBtn").addEventListener("click", ()=>{ state.view="list"; setViewUI(); });
+document.getElementById("viewGridBtn").addEventListener("click", ()=>{ state.view="grid"; setViewUI(); });
+
+/* ---------- deep link ---------- */
+function handleHash(){ const h=location.hash||""; if(h.indexOf("#d=")===0) openDetail(decodeURIComponent(h.slice(3))); else if(h==="#dash") openDashboard(); }
+
+function initNowLine(){
+  const nowD=DATA.filter(d=>d.months.includes(CUR_MONTH));
+  const el=document.getElementById("nowLine");
+  if(nowD.length){ const names=nowD.slice(0,4).map(d=>'<b>'+d.name+'</b>').join("、");
+    el.innerHTML='<span class="pulse"></span><span>现在是 <b>'+CUR_MONTH+' 月</b> · 本月正当时：'+names+(nowD.length>4?' 等':'')+'</span>';
+  } else { el.innerHTML='<span class="pulse"></span><span>现在是 <b>'+CUR_MONTH+' 月</b> · 换个季节看看别处的风景</span>'; }
+}
+function boot(){
+  initTheme(); renderMonths(); syncMonthUI(); buildContRow(); initNowLine();
+  loadGA4(ANALYTICS_GA4);
+  updateFavBadge();
+  document.getElementById('modeGlobe').addEventListener('click',()=>setMode('globe'));
+  document.getElementById('modeMap').addEventListener('click',()=>setMode('map'));
+  const cl=document.getElementById('creditsLink'); if(cl) cl.addEventListener('click',e=>{e.preventDefault();openCredits();});
+  const fb=document.getElementById('favBtn'); if(fb) fb.addEventListener('click',openFavs);
+  sizeCanvas(); drawPins(); requestAnimationFrame(frame); handleHash();
+  if('IntersectionObserver' in window){
+    const gc = canvas.closest('.globe-card');
+    if(gc){ new IntersectionObserver(es=>{ es.forEach(e=>{ globeVisible = e.isIntersecting; }); }, {threshold:0.05}).observe(gc); }
+  }
+}
+window.addEventListener("resize",()=>sizeCanvas());
+window.addEventListener("hashchange",handleHash);
+boot();
+</script>
+</body>
+</html>

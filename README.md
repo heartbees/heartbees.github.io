@@ -29,7 +29,14 @@
 │   ├── _default/single.html  # 文章详情页
 │   ├── partials/comments.html# Waline 评论组件
 │   └── shortcodes/font.html  # 自定义字号/颜色短代码
-├── static/images/            # 图片资源（原样拷贝到站点根 /images/）
+├── static/
+│   ├── images/                  # 图片资源（原样拷贝到站点根 /images/）
+│   └── seasons-atlas/           # 「岁时 SeasonAtlas」独立静态站（/seasons-atlas/）
+│       ├── index.html           # 主入口（地图/筛选/收藏/日历）
+│       ├── data.js              # 206 个目的地数据（含图与署名）
+│       ├── dest/                # 206 个目的地独立页 + .ics + 索引
+│       ├── assets/dest.css      # 目的地页共享样式
+│       └── sitemap.xml          # 子站 sitemap（绝对 URL 已指向线上）
 ├── assets/                   # 需要被 Hugo 处理的静态资源
 ├── themes/PaperMod/          # 主题（直接内置，随仓库一起维护）
 ├── .github/workflows/deploy.yml  # 自动部署流水线

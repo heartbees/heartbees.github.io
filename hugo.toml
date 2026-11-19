@@ -58,6 +58,16 @@ url = "/posts/"
 
 weight = 2
 
+[[menu.main]]
+
+identifier = "seasons-atlas"
+
+name = "岁时地图"
+
+url = "/seasons-atlas/"
+
+weight = 3
+
 # URL
 [permalinks]
 
