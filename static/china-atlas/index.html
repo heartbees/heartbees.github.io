@@ -349,7 +349,7 @@
               <input id="searchInput" type="text" placeholder="搜目的地 / 省份 / 关键词" />
             </div>
             <button class="chip active" data-type="全部">全部</button>
-            <button class="chip" data-type="祭典"><span class="dot" style="color:var(--fest)"></span>祭典</button>
+            <button class="chip" data-type="节庆"><span class="dot" style="color:var(--fest)"></span>节庆</button>
             <button class="chip" data-type="自然"><span class="dot" style="color:var(--nature)"></span>自然</button>
             <button class="chip" data-type="现象"><span class="dot" style="color:var(--phenom)"></span>现象</button>
             <span class="toolbar" title="切换列表 / 网格"><button id="viewListBtn" class="on">☰ 列表</button><button id="viewGridBtn">▦ 网格</button></span>
@@ -365,7 +365,7 @@
             <canvas id="globe"></canvas>
             <div class="globe-hint">拖动旋转 · 点击光点</div>
             <div class="globe-legend">
-              <span><i style="background:var(--fest)"></i>祭典</span>
+              <span><i style="background:var(--fest)"></i>节庆</span>
               <span><i style="background:var(--nature)"></i>自然</span>
               <span><i style="background:var(--phenom)"></i>现象</span>
             </div>
@@ -426,8 +426,8 @@ const DATA = (window.SEASON_DATA || []);
 if (!DATA.length) {
   document.body.insertAdjacentHTML('afterbegin','<div style="padding:20px;color:#f66">数据加载失败：请确认 data.js 与 index.html 在同一目录，并通过浏览器打开 index.html。</div>');
 }
-const TYPE_COLOR = { "祭典": "#ff8f6b", "自然": "#7ad3a0", "现象": "#8fb8ff" };
-const TYPE_CLASS = { "祭典": "t-fest", "自然": "t-nature", "现象": "t-phenom" };
+const TYPE_COLOR = { "节庆": "#ff8f6b", "自然": "#7ad3a0", "现象": "#8fb8ff" };
+const TYPE_CLASS = { "节庆": "t-fest", "自然": "t-nature", "现象": "t-phenom" };
 const STATUS_CLASS = { "官方已公布": "st-confirmed", "推估": "st-estimate", "历年规律": "st-pattern" };
 const HEAT = ['#1b242e','#20323c','#2b5157','#3a7d76','#63b9a3','#e9bd7f'];
 const CONTINENTS = ["全部","华北","东北","华东","华中","华南","西南","西北"];
@@ -526,12 +526,12 @@ const EMOJI={
 "harbin-ice":"🧊","zhangjiajie":"⛰️","jiuzhaigou":"💧","qiantang-bore":"🌊","losar":"🙏"
 };
 const PAL={
- "祭典":[["#6f2b2b","#d67a3a"],["#7a3d22","#e0a24a"],["#5c2338","#c15a72"]],
+ "节庆":[["#6f2b2b","#d67a3a"],["#7a3d22","#e0a24a"],["#5c2338","#c15a72"]],
  "自然":[["#1f5d4f","#86b56a"],["#134e5e","#5fb3a1"],["#3a5a2a","#b0b95a"]],
  "现象":[["#232a5c","#6b7fd0"],["#2a2350","#8f6fd0"],["#123a52","#4f9fd0"]]
 };
 function hashStr(s){let h=0;for(let i=0;i<s.length;i++)h=(h*31+s.charCodeAt(i))>>>0;return h;}
-function emojiFor(d){ return EMOJI[d.id] || (d.type==='祭典'?'🎉':d.type==='自然'?'🏞️':'🌌'); }
+function emojiFor(d){ return EMOJI[d.id] || (d.type==='节庆'?'🎉':d.type==='自然'?'🏞️':'🌌'); }
 function localImg(d){ return d&&d.id ? ('img/'+encodeURIComponent(d.id)+'.jpg') : ''; }
 function coverStyle(d){ const arr=PAL[d.type]||PAL['自然']; const p=arr[hashStr(d.id)%arr.length]; return '--c1:'+p[0]+';--c2:'+p[1]; }
 function coverHTML(d,extraClass){
