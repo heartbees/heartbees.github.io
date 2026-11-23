@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>3D 微缩街景｜岁时 SeasonAtlas</title>
+<meta name="description" content="用 OpenStreetMap 真实建筑与道路生成的可交互 3D 微缩街景，支持春夏秋冬四季。" />
+<style>
+:root{--bg:#0a0e13;--panel:#111a24;--line:rgba(255,255,255,.1);--text:#e9eef3;--muted:#8ea3b4;--gold:#e9bd7f;--serif:"Songti SC","Noto Serif SC",Georgia,serif;--sans:system-ui,"PingFang SC","Microsoft YaHei",sans-serif}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(1200px 700px at 80% -10%,rgba(95,211,196,.08),transparent 60%),#0a0e13;color:var(--text);font-family:var(--sans)}
+header{max-width:1080px;margin:0 auto;padding:22px 20px 6px;display:flex;align-items:center;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;color:inherit;text-decoration:none}
+.mark{width:26px;height:26px;border-radius:50%;background:conic-gradient(from 210deg,var(--gold),#5fd3c4,var(--gold));position:relative}
+.mark::after{content:"";position:absolute;inset:5px;border-radius:50%;background:var(--bg)}
+.brand small{display:block;font-size:9px;letter-spacing:.28em;color:#6b7f90;font-weight:600}
+header .sp{margin-left:auto}header a.link{font-size:13px;color:var(--muted);text-decoration:none;margin-left:14px}
+main{max-width:1080px;margin:0 auto;padding:16px 20px 60px}
+h1{font-family:var(--serif);font-size:clamp(26px,4vw,38px);margin:8px 0 4px;font-weight:600}
+.lead{color:var(--muted);font-size:14px;margin-bottom:26px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px}
+.card{display:block;background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden;color:inherit;text-decoration:none;transition:.2s}
+.card:hover{transform:translateY(-3px);border-color:rgba(233,189,127,.5)}
+.card img{display:block;width:100%;height:200px;object-fit:cover}
+.card .body{padding:14px 16px 18px}
+.card h2{font-family:var(--serif);font-size:19px;margin:0 0 4px}
+.card p{margin:0;color:var(--muted);font-size:12.5px;line-height:1.6}
+.card .go{margin-top:10px;font-size:12.5px;color:var(--gold)}
+.note{margin-top:26px;font-size:12px;color:#6b7f90;line-height:1.7}
+footer{border-top:1px solid var(--line);margin-top:30px;padding:20px;text-align:center;color:#6b7f90;font-size:12px}
+footer a{color:var(--muted);margin:0 8px}
+</style>
+</head>
+<body>
+<header>
+  <a class="brand" href="../index.html"><span class="mark"></span><span>岁时 SeasonAtlas<small>WORLD IN SEASON</small></span></a>
+  <span class="sp"></span><a class="link" href="../index.html">← 返回地图</a>
+</header>
+<main>
+  <h1>3D 微缩街景 <span style="font-size:14px;color:var(--gold);font-family:var(--sans)">Pocket City</span></h1>
+  <div class="lead">用 OpenStreetMap 的真实建筑轮廓与道路，生成可交互的手绘微缩街区，支持春夏秋冬切换。</div>
+  <div class="grid">
+    <a class="card" href="kyoto-gion.html">
+      <img src="thumb-kyoto.png" alt="京都祇园 3D 微缩街景" />
+      <div class="body"><h2>京都 · 祇园</h2><p>白川运河旁的 364 栋町屋、辰巳神社与小桥，秋季红叶与冬季积雪。</p><div class="go">进入 3D 街景 →</div></div>
+    </a>
+    <a class="card" href="anshun-bridge.html">
+      <img src="thumb-chengdu.png" alt="成都安顺廊桥 3D 微缩街景" />
+      <div class="body"><h2>成都 · 安顺廊桥</h2><p>锦江之上的安顺廊桥（手工地标），灰瓦红柱与河岸银杏，33 栋街区建筑。</p><div class="go">进入 3D 街景 →</div></div>
+    </a>
+  </div>
+  <div class="note">数据 © OpenStreetMap 贡献者。建筑高度在缺乏层数信息时按面积推算，属风格化近似，非测绘级还原。单文件离线运行，无需联网。</div>
+</main>
+<footer>© 岁时 SeasonAtlas · <a href="../index.html">返回地图</a><a href="../dest/all.html">全部目的地</a></footer>
+</body>
+</html>
