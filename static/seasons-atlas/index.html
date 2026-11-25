@@ -539,12 +539,14 @@ function localImg(d){ return d&&d.id ? ('img/'+encodeURIComponent(d.id)+'.jpg') 
 function coverStyle(d){ const arr=PAL[d.type]||PAL['自然']; const p=arr[hashStr(d.id)%arr.length]; return '--c1:'+p[0]+';--c2:'+p[1]; }
 function coverHTML(d,extraClass){
   const li = localImg(d);
-  if(li || d.img){
-    const src = li || ((extraClass==='mhero') ? (d.img||d.imgSm) : (d.imgSm||d.img));
+  const remote = (extraClass==='mhero') ? (d.img||d.imgSm) : (d.imgSm||d.img);
+  if(remote || li){
+    // Unsplash 合规：优先热链 images.unsplash.com（上报浏览量），本地副本仅作兜底
+    const src = remote || li;
     const credit = d.imgCredit ? '<a class="ccredit" href="'+(d.imgLink||'#')+'" target="_blank" rel="noopener">📷 Photo by '+d.imgCredit+' on Unsplash</a>' : '';
     return '<div class="cover '+(extraClass||'')+'" style="'+coverStyle(d)+'">'+
       '<span class="cglow"></span><span class="cemoji">'+emojiFor(d)+'</span>'+
-      '<img class="cphoto" loading="lazy" decoding="async" src="'+src+'" alt="'+d.name+'" onerror="this.onerror=null;this.src=\''+(d.imgSm||d.img||'')+'\';this.onerror=function(){this.remove()}">'+
+      '<img class="cphoto" loading="lazy" decoding="async" src="'+src+'" alt="'+d.name+'" onerror="this.onerror=null;this.src=\''+li+'\';this.onerror=function(){this.remove()}">'+
       '<span class="cbadge">'+d.type+'</span>'+credit+'</div>';
   }
   return '<div class="cover '+(extraClass||'')+'" style="'+coverStyle(d)+'"><span class="cglow"></span><span class="cbadge">'+d.type+'</span><span class="cemoji">'+emojiFor(d)+'</span></div>';
@@ -950,10 +952,10 @@ function setMode(m){
 /* ---------- credits / licenses ---------- */
 function openCredits(){
   const items=DATA.filter(d=>d.img);
-  const rows=items.map(d=>'<div class="credit-item"><img src="'+(localImg(d)||d.imgSm||d.img)+'" alt=""><div style="flex:1;min-width:0"><b style="font-family:var(--serif);font-size:13.5px">'+d.name+'</b><br><a href="'+(d.imgLink||'#')+'" target="_blank" rel="noopener">Photo by '+d.imgCredit+' on Unsplash ↗</a></div></div>').join('');
+  const rows=items.map(d=>'<div class="credit-item"><img src="'+(d.imgSm||d.img||localImg(d))+'" alt=""><div style="flex:1;min-width:0"><b style="font-family:var(--serif);font-size:13.5px">'+d.name+'</b><br><a href="'+(d.imgLink||'#')+'" target="_blank" rel="noopener">Photo by '+d.imgCredit+' on Unsplash ↗</a></div></div>').join('');
   modal.style.setProperty("--accent","var(--gold)");
   modal.innerHTML='<div class="mhead"><button class="mclose" aria-label="关闭">✕</button><div class="mtags"><span class="tag st st-confirmed">版权与来源</span></div><h2>图片来源与许可</h2><div class="men">'+items.length+' 张实拍来自 Unsplash（Unsplash License），其余为原创示意封面</div></div>'+
-   '<div class="mbody"><div class="credits-grid">'+rows+'</div><div class="aff-note" style="margin-top:14px">照片通过 Unsplash API 获取并热链至 images.unsplash.com，遵循 Unsplash License；摄影师与 Unsplash 均已署名并链接。示意封面为原创生成，不涉及第三方版权。</div></div>';
+   '<div class="mbody"><div class="credits-grid">'+rows+'</div><div class="aff-note" style="margin-top:14px">照片通过 Unsplash API 获取，优先热链至 images.unsplash.com（浏览器直接向 Unsplash 请求，用于其统计图片浏览量；加载失败时用本站本地副本兜底），遵循 Unsplash License；摄影师与 Unsplash 均已署名并链接。示意封面为原创生成，不涉及第三方版权。</div></div>';
   hideMapForOverlay();
   overlay.classList.add("open"); document.body.style.overflow="hidden";
   modal.querySelector(".mclose").onclick=closeDetail;
