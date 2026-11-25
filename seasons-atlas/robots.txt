@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://heartbees.github.io/seasons-atlas/sitemap.xml

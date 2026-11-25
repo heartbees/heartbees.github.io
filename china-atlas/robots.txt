@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://heartbees.github.io/china-atlas/sitemap.xml
