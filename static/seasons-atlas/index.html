@@ -887,7 +887,7 @@ function updateFavBadge(){ const n=getFavs().length; const b=document.getElement
 function openFavs(){
   const favs=getFavs(); const items=DATA.filter(d=>favs.indexOf(d.id)>=0);
   const rows = items.length ? items.map(d=>{
-    const src=localImg(d)||d.imgSm||d.img||'';
+    const src=d.imgSm||d.img||localImg(d)||'';
     const cover = src? '<img class="mini-cover" src="'+src+'" alt="">' : '<div class="mini-cover" style="display:grid;place-items:center;font-size:20px">'+emojiFor(d)+'</div>';
     return '<div class="fav-row">'+cover+'<div class="fi"><b>'+d.name+'</b><span>'+d.country+' · 最佳 '+d.best+'</span></div>'+
       '<button class="btn btn-ghost" style="padding:7px 12px" data-open="'+d.id+'">查看</button>'+
@@ -955,7 +955,7 @@ function openCredits(){
   const rows=items.map(d=>'<div class="credit-item"><img src="'+(d.imgSm||d.img||localImg(d))+'" alt=""><div style="flex:1;min-width:0"><b style="font-family:var(--serif);font-size:13.5px">'+d.name+'</b><br><a href="'+(d.imgLink||'#')+'" target="_blank" rel="noopener">Photo by '+d.imgCredit+' on Unsplash ↗</a></div></div>').join('');
   modal.style.setProperty("--accent","var(--gold)");
   modal.innerHTML='<div class="mhead"><button class="mclose" aria-label="关闭">✕</button><div class="mtags"><span class="tag st st-confirmed">版权与来源</span></div><h2>图片来源与许可</h2><div class="men">'+items.length+' 张实拍来自 Unsplash（Unsplash License），其余为原创示意封面</div></div>'+
-   '<div class="mbody"><div class="credits-grid">'+rows+'</div><div class="aff-note" style="margin-top:14px">照片通过 Unsplash API 获取，优先热链至 images.unsplash.com（浏览器直接向 Unsplash 请求，用于其统计图片浏览量；加载失败时用本站本地副本兜底），遵循 Unsplash License；摄影师与 Unsplash 均已署名并链接。示意封面为原创生成，不涉及第三方版权。</div></div>';
+   '<div class="mbody"><div class="credits-grid">'+rows+'</div><div class="aff-note" style="margin-top:14px">照片来自 Unsplash（官方图片直链），优先热链至 images.unsplash.com（浏览器直接向 Unsplash 请求，用于其统计图片浏览量；加载失败时用本站本地副本兜底），遵循 Unsplash License；摄影师与 Unsplash 均已署名并链接。示意封面为原创生成，不涉及第三方版权。</div></div>';
   hideMapForOverlay();
   overlay.classList.add("open"); document.body.style.overflow="hidden";
   modal.querySelector(".mclose").onclick=closeDetail;
